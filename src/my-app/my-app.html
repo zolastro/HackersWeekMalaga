@@ -1,0 +1,64 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html"/>
+<link rel="import" href="../../bower_components/polymerfire/firebase-app.html"/>
+<link rel="import" href="../../bower_components/polymerfire/firebase-auth.html"/>
+<link rel="import" href="../../bower_components/paper-button/paper-button.html"/>
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+
+<dom-module id="my-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <!-- We link our application to firebase -->
+    <firebase-app
+    auth-domain= "hackersweekmalaga-ea062.firebaseapp.com"
+    database-url= "https://hackersweekmalaga-ea062.firebaseio.com"
+    storage-bucket= "hackersweekmalaga-ea062.appspot.com"
+     api-key= "AIzaSyCA5InjLs8luFX5FZSro8fGfWtiS298NBU">
+   </firebase-app>
+
+   <firebase-auth id="auth" user="{{user}}" provider ="google" on-error ="handleError">
+   </firebase-auth>
+   <paper-button raised on-tap ="login">Login</paper-button>
+   <paper-button raised on-tap ="logout">Logout</paper-button>
+   <span>[[user.email]]</span>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'my-app',
+
+      properties: {
+        user: Object,
+      },
+
+      login: function (){
+        this.$.auth.signInWithPopup();
+      },
+
+      logout: function (){
+        this.$.auth.signOut();
+      },
+
+    });
+  </script>
+</dom-module>
