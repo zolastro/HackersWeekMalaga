@@ -1,41 +1,38 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
-
+<link rel="import" href="shared-styles.html">
 <dom-module id="my-conferences">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <!-- Get the conferences from the database -->
-    <firebase-query
-        id="query"
-        path="/conferences"
-        data="{{data}}">
-    </firebase-query>
-    <template is="dom-if" if =[[data]]><span>Hello!</span></template>
-    <template is="dom-repeat" items="{{data}}" as="item">
-      <span>{{item.text}}</span>
-    </template>
+  <style include="shared-styles">
+    :host {
+      display: block;
 
+      padding: 10px;
+    }
+  </style>
+  <firebase-query
+      id="query"
+      path="/conferences"
+      data="{{data}}">
+  </firebase-query>
+  <template is="dom-repeat" items="[[data]]" index-as="index">
+    <div class="card">
+        <h1>[[item.title]]</h1>
+        <p>
+          [[item.text]]
+        </p>
+      </div>
   </template>
-  <script>
-    (function() {
-      'use strict';
+</template>
 
-      Polymer({
+  <script>
+    Polymer({
         is: 'my-conferences',
         properties: {
-          data: {
-            type: Object,
-            observer: 'dataChanged'
-          }
-     },
-     dataChanged: function (newData, oldData) {
-         // do something when the query returns values
-       }
-    })();
+          data:Array,
+          user: Object,
+     }
+    });
   </script>
 </dom-module>
