@@ -1,8 +1,9 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src/my-app/my-app.html",
   "fragments": [
     "src/my-app/my-app.html",
+    "src/my-app/my-conferences.html"
   ],
   "sourceGlobs": [
     "src/**/*",
