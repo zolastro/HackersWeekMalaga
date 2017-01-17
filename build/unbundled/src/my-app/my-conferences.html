@@ -1,0 +1,28 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="shared-styles.html">
+</head><body><dom-module id="my-conferences">
+  <template>
+  <style include="shared-styles">
+    :host {
+      display: block;
+
+      padding: 10px;
+    }
+  </style>
+  <firebase-query id="query" path="/conferences" data="{{data}}">
+  </firebase-query>
+  <template is="dom-repeat" items="[[data]]" index-as="index">
+    <div class="card">
+        <h1>[[item.title]]</h1>
+        <p>
+          [[item.text]]
+        </p>
+      </div>
+  </template>
+</template>
+
+  <script>Polymer({is:"my-conferences",properties:{data:Array,user:Object}});</script>
+</dom-module>
+</body></html>

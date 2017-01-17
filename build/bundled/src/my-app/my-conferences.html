@@ -1,0 +1,24 @@
+<html><head><meta charset="UTF-8"><link rel="import" href="my-app.html"></head><body><dom-module id="my-conferences">
+  <template>
+  <style include="shared-styles">
+    :host {
+      display: block;
+
+      padding: 10px;
+    }
+  </style>
+  <firebase-query id="query" path="/conferences" data="{{data}}">
+  </firebase-query>
+  <template is="dom-repeat" items="[[data]]" index-as="index">
+    <div class="card">
+        <h1>[[item.title]]</h1>
+        <p>
+          [[item.text]]
+        </p>
+      </div>
+  </template>
+</template>
+
+  <script>Polymer({is:"my-conferences",properties:{data:Array,user:Object}});</script>
+</dom-module>
+</body></html>
