@@ -16,6 +16,15 @@
       path="/conferences"
       data="{{data}}">
   </firebase-query>
+
+  <template is="dom-if" if="[[user]]" restamp="true">
+    <paper-button raised on-tap ="logout">Logout</paper-button>
+     <span>[[user.email]]</span>
+  </template>
+  <template is="dom-if" if="[[!user]]" restamp="true">
+    <paper-button raised on-tap ="login">Login</paper-button>
+  </template>
+  
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
