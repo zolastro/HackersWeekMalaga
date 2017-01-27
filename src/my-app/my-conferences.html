@@ -24,7 +24,15 @@
   <template is="dom-if" if="[[!user]]" restamp="true">
     <paper-button raised on-tap ="login">Login</paper-button>
   </template>
-  
+
+  <template is="dom-repeat" items="[[data]]" index-as="index">
+    <div class="card">
+        <h1>[[item.title]]</h1>
+        <p>
+          [[item.text]]
+        </p>
+      </div>
+  </template>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>

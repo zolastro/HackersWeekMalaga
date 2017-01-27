@@ -10,7 +10,11 @@
     "iron-pages": "PolymerElements/iron-pages#^1.0.8",
     "paper-dialog": "PolymerElements/paper-dialog#^1.1.0",
     "iron-icons": "PolymerElements/iron-icons#^1.2.0",
-    "iron-icon": "PolymerElements/iron-icon#^1.0.12"
+    "iron-icon": "PolymerElements/iron-icon#^1.0.12",
+    "paper-tabs": "PolymerElements/paper-tabs#^1.7.0",
+    "paper-item": "PolymerElements/paper-item#^1.2.1",
+    "paper-menu": "PolymerElements/paper-menu#^1.2.2",
+    "google-map": "GoogleWebComponents/google-map#^1.2.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
