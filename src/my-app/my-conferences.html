@@ -12,7 +12,6 @@
   <style include="shared-styles">
     :host {
       display: block;
-
       padding: 10px;
     }
   paper-fab {
@@ -38,7 +37,7 @@
         <span><b>Fecha:</b> [[item.date]]</span>
       </div>
   </template>
-    <span>{{user.role}}</span>
+  <div hidden="[[!user]]">
     <hr />
     <h1>Añadir conferencia:</h1>
     <paper-input
@@ -54,19 +53,22 @@
   name="title">
 </paper-input>
 <paper-input
-  id="author"
-  label="Conferenciante"
-  type="text"
-  name="author">
+id="author"
+label="Conferenciante"
+type="text"
+name="author">
 </paper-input>
 <paper-input
-  id="date"
-  label="Fecha"
-  type="date"
-  name="date">
+id="date"
+label="Fecha"
+type="date"
+name="date">
 </paper-input>
 <paper-fab id="saveFab" icon="cloud-upload" on-tap="add"></paper-fab>
 <paper-toast id="errorToast" text="¡Debes rellenar todos los datos!" horizontal-align="right"></paper-toast>
+</div>
+
+
 </template>
 
 
@@ -88,13 +90,11 @@
                     author: this.$.author.value,
                     date: this.$.date.value
                 });
-
                 this.$.text.value = null;
                 this.$.title.value = null;
                 this.$.date.value = null;
                 this.$.author.value = null;
             },
-
         });
     </script>
 </dom-module>

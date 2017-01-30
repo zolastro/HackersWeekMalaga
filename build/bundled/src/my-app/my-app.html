@@ -1646,7 +1646,6 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
   <style include="shared-styles">
     :host {
       display: block;
-
       padding: 10px;
     }
   paper-fab {
@@ -1669,7 +1668,7 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
         <span><b>Fecha:</b> [[item.date]]</span>
       </div>
   </template>
-    <span>{{user.role}}</span>
+  <div hidden="[[!user]]">
     <hr>
     <h1>Añadir conferencia:</h1>
     <paper-input id="title" label="Título" type="text" name="title">
@@ -1682,6 +1681,9 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
 </paper-input>
 <paper-fab id="saveFab" icon="cloud-upload" on-tap="add"></paper-fab>
 <paper-toast id="errorToast" text="¡Debes rellenar todos los datos!" horizontal-align="right"></paper-toast>
+</div>
+
+
 </template>
 
 
@@ -1873,9 +1875,7 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
       <div class="flex-card">ETSI Informática</div>
       <div class="flex-card">Para Estudiantes de la UMA para Estudiantes de la UMA</div>
     </div>
-    <div class="cta-container">
-      <a href="/torneos"><paper-button id="cta">INSCRÍBETE</paper-button></a>
-    </div>
+     
     <div class="wrapper">
     La E.T.S. Ingeniería Informática se encuentra en el Campus de Teatinos de la Universidad de Málaga, junto al Hospital Clínico Universitario Virgen de la Victoria. Las conferencias, los talleres y las sesiones de juegos tendrán lugar en el edificio de la escuela; que cuenta con cafetería y zonas de aparcamiento. <br>
     Se puede venir fácilmente en autobús desde el centro de la ciudad en las <a href="http://www.emtmalaga.es/emt-classic/home.html"><b>las líneas 8, 11 o 25 de la EMT</b></a>, que tienen parada en la Alameda Principal. A ella es rápido llegar desde la <a href="http://www.estabus.emtsam.es/"><b>Estación de Autobuses</b></a>, la estación de tren Málaga-María Zambrano o la estación Málaga Centro-Alameda, donde paran las <a href="http://www.renfe.com/viajeros/cercanias/malaga/"><b>líneas C-1 y C-2 de Cercanías</b></a>.<br>
@@ -1984,7 +1984,6 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
   <style include="shared-styles">
     :host {
       display: block;
-
       padding: 10px;
     }
     paper-fab {
@@ -2007,20 +2006,22 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
         <span><b>Fecha:</b> [[item.date]]</span>
       </div>
   </template>
-
+  <div hidden="[[!user]]">
 
     <hr>
     <h1>Añadir taller:</h1>
-      <paper-input id="title" label="Título" type="text" name="title">
-      </paper-input>
-      <paper-input id="text" label="Descripción" type="text" name="description">
-      </paper-input>
-      <paper-input id="author" label="Impartido por" type="text" name="author">
-      </paper-input>
-      <paper-input id="date" label="Fecha" type="date" name="date">
-      </paper-input>
-      <paper-fab id="saveFab" icon="cloud-upload" on-tap="add"></paper-fab>
-      <paper-toast id="errorToast" text="¡Debes rellenar todos los datos!" horizontal-align="right"></paper-toast>
+    <paper-input id="title" label="Título" type="text" name="title">
+  </paper-input>
+  <paper-input id="text" label="Descripción" type="text" name="description">
+</paper-input>
+<paper-input id="author" label="Impartido por" type="text" name="author">
+</paper-input>
+<paper-input id="date" label="Fecha" type="date" name="date">
+</paper-input>
+<paper-fab id="saveFab" icon="cloud-upload" on-tap="add"></paper-fab>
+<paper-toast id="errorToast" text="¡Debes rellenar todos los datos!" horizontal-align="right"></paper-toast>
+  </div>
+
 
 
 </template>
@@ -2032,7 +2033,6 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
   <style include="shared-styles">
     :host {
       display: block;
-
       padding: 10px;
     }
     paper-fab {
@@ -2050,30 +2050,32 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
         <p>
           [[item.text]]
         </p>
-        <span><b>Impartido por:</b> [[item.author]]</span>
+        <span><b>Lugar:</b> [[item.place]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
       </div>
   </template>
 
+<div hidden="[[!user]]">
 
-    <hr>
-    <h1>Añadir juego:</h1>
-      <paper-input id="title" label="Título" type="text" name="title">
-      </paper-input>
-      <paper-input id="text" label="Descripción" type="text" name="description">
-      </paper-input>
-      <paper-input id="place" label="Lugar" type="text" name="place">
-      </paper-input>
-      <paper-input id="date" label="Fecha" type="date" name="date">
-      </paper-input>
-      <paper-fab id="saveFab" icon="cloud-upload" on-tap="add"></paper-fab>
-      <paper-toast id="errorToast" text="¡Debes rellenar todos los datos!" horizontal-align="right"></paper-toast>
+  <hr>
+  <h1>Añadir juego:</h1>
+  <paper-input id="title" label="Título" type="text" name="title">
+</paper-input>
+<paper-input id="text" label="Descripción" type="text" name="description">
+</paper-input>
+<paper-input id="place" label="Lugar" type="text" name="place">
+</paper-input>
+<paper-input id="date" label="Fecha" type="date" name="date">
+</paper-input>
+<paper-fab id="saveFab" icon="cloud-upload" on-tap="add"></paper-fab>
+<paper-toast id="errorToast" text="¡Debes rellenar todos los datos!" horizontal-align="right"></paper-toast>
+</div>
 
 
 </template>
 
-  <script>Polymer({is:"my-games",properties:{data:Array,user:Object},add:function(){return this.$.text.value&&this.$.title.value&&this.$.place.value&&this.$.date.value?(this.$.query.ref.push({text:this.$.text.value,title:this.$.title.value,author:this.$.place.value,date:this.$.date.value}),this.$.text.value=null,this.$.title.value=null,this.$.place.value=null,void(this.$.date.value=null)):void this.$.errorToast.open()}});</script>
+  <script>Polymer({is:"my-games",properties:{data:Array,user:Object},add:function(){return this.$.text.value&&this.$.title.value&&this.$.place.value&&this.$.date.value?(this.$.query.ref.push({text:this.$.text.value,title:this.$.title.value,place:this.$.place.value,date:this.$.date.value}),this.$.text.value=null,this.$.title.value=null,this.$.place.value=null,void(this.$.date.value=null)):void this.$.errorToast.open()}});</script>
 </dom-module>
 <dom-module id="my-view404" assetpath="/">
   <template>
