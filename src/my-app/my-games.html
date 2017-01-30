@@ -1,0 +1,98 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="my-games">
+  <template>
+  <style include="shared-styles">
+    :host {
+      display: block;
+
+      padding: 10px;
+    }
+    paper-fab {
+        --paper-fab-background: var(--app-primary-color);
+      }
+  </style>
+  <firebase-query
+      id="query"
+      path="/games"
+      data="{{data}}">
+  </firebase-query>
+
+  <h1>Juegos</h1>
+  <p>Saca tu lado friki.  </p>
+  <template is="dom-repeat" items="[[data]]" index-as="index">
+    <div class="card">
+        <h1>[[item.title]]</h1>
+        <p>
+          [[item.text]]
+        </p>
+        <span><b>Impartido por:</b> [[item.author]]</span>
+        <br />
+        <span><b>Fecha:</b> [[item.date]]</span>
+      </div>
+  </template>
+
+
+    <hr />
+    <h1>Añadir juego:</h1>
+      <paper-input
+        id="title"
+        label="Título"
+        type="text"
+        name="title">
+      </paper-input>
+      <paper-input
+        id="text"
+        label="Descripción"
+        type="text"
+        name="description">
+      </paper-input>
+      <paper-input
+        id="place"
+        label="Lugar"
+        type="text"
+        name="place">
+      </paper-input>
+      <paper-input
+        id="date"
+        label="Fecha"
+        type="date"
+        name="date">
+      </paper-input>
+      <paper-fab id="saveFab" icon="cloud-upload" on-tap="add"></paper-fab>
+      <paper-toast id="errorToast" text="¡Debes rellenar todos los datos!" horizontal-align="right"></paper-toast>
+
+
+</template>
+
+  <script>
+    Polymer({
+        is: 'my-games',
+        properties: {
+          data:Array,
+          user: Object,
+        },
+        add: function(){
+          if(!this.$.text.value || !this.$.title.value|| !this.$.place.value|| !this.$.date.value){
+            this.$.errorToast.open();
+            return;
+          }
+          this.$.query.ref.push({
+            text: this.$.text.value,
+            title: this.$.title.value,
+            author: this.$.place.value,
+            date: this.$.date.value
+          });
+
+          this.$.text.value = null;
+          this.$.title.value = null;
+          this.$.place.value = null;
+          this.$.date.value = null;
+        },
+
+    });
+  </script>
+</dom-module>

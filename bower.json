@@ -14,7 +14,11 @@
     "paper-tabs": "PolymerElements/paper-tabs#^1.7.0",
     "paper-item": "PolymerElements/paper-item#^1.2.1",
     "paper-menu": "PolymerElements/paper-menu#^1.2.2",
-    "google-map": "GoogleWebComponents/google-map#^1.2.0"
+    "google-map": "GoogleWebComponents/google-map#^1.2.0",
+    "paper-input": "PolymerElements/paper-input#^1.1.23",
+    "iron-form": "PolymerElements/iron-form#^1.1.4",
+    "paper-fab": "PolymerElements/paper-fab#^1.2.1",
+    "paper-toast": "PolymerElements/paper-toast#^1.3.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

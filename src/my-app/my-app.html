@@ -20,11 +20,14 @@
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
 
 <link rel="import" href="../my-app/my-conferences.html" />
 <link rel="import" href="../my-app/my-home.html" />
+<link rel="import" href="../my-app/my-workshops.html" />
+<link rel="import" href="../my-app/my-games.html" />
 <link rel="import" href="../my-app/my-view404.html" />
 
 <link rel="import" href="my-icons.html">
@@ -71,11 +74,7 @@
 
     }
 
-    /*
-    app-header paper-icon-button {
-      --paper-icon-button-ink-color: white;
-    }
-
+/*
     app-drawer-layout {
 
       background: rgba(255,255,255,1);
@@ -86,8 +85,8 @@
       background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 64%, rgba(0,41,50,1) 100%);
       background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 64%, rgba(0,41,50,1) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#002932', GradientType=0 );
-    }
-*/
+    }*/
+
     app-drawer {
       --app-drawer-content-container: {
         color:black;
@@ -137,7 +136,7 @@
     auth-domain= "hackersweekmalaga-ea062.firebaseapp.com"
     database-url= "https://hackersweekmalaga-ea062.firebaseio.com"
     storage-bucket= "hackersweekmalaga-ea062.appspot.com"
-     api-key= "AIzaSyCA5InjLs8luFX5FZSro8fGfWtiS298NBU">
+    api-key= "AIzaSyCA5InjLs8luFX5FZSro8fGfWtiS298NBU">
    </firebase-app>
 
    <firebase-auth id="auth" user="{{user}}" provider ="google" on-error ="handleError">
@@ -185,10 +184,11 @@
      <paper-menu class ="mobile drawer-list" selected="{{page}}" attr-for-selected="name">
       <paper-item name="home">  <a href ="/home">Inicio</a></paper-item>
       <paper-item name="conferences"><a href ="/conferences">Conferencias</a></paper-item>
+      <paper-item name="workshops"><a href ="/workshops">Talleres</a></paper-item>
+      <paper-item name="games"><a href ="/games">Juegos</a></paper-item>
      </paper-menu>
 
    </app-drawer>
-
    <app-header-layout >
      <app-header class="main-header" fixed condenses effects="fade-background">
 
@@ -196,7 +196,13 @@
          <!-- drawer toggle button -->
 
          <paper-icon-button class="menu-button" icon="my-icons:menu" drawer-toggle hidden$="{{wideLayout}}"></paper-icon-button>
-          <paper-icon-button icon="social:share" on-tap="_shareBtn"></paper-icon-button>
+         <paper-icon-button icon="social:share" on-tap="_shareBtn"></paper-icon-button>
+         <template is="dom-if" if="[[user]]" restamp="true">
+             <paper-icon-button icon="social:person" on-tap="logout"></paper-icon-button>
+         </template>
+         <template is="dom-if" if="[[!user]]" restamp="true">
+           <paper-icon-button icon="social:person-outline" on-tap="login"></paper-icon-button>
+         </template>
        </app-toolbar>
 
        <app-toolbar class="desktop" hidden$="{{!wideLayout}}">
@@ -206,16 +212,21 @@
          <paper-tabs selected="{{page}}" attr-for-selected="name" bottom-item>
              <paper-tab name="home"><a href ="/home">Inicio</a></paper-tab>
              <paper-tab name="conferences"><a href ="/conferences">Conferencias</a></paper-tab>
+             <paper-tab name="workshops"><a href ="/workshops">Talleres</a></paper-tab>
+             <paper-tab name="games"><a href ="/games">Juegos</a></paper-tab>
          </paper-tabs>
        </app-toolbar>
 
      </app-header>
+     <!-- Content goes here! -->
+     <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404">
+       <my-home name="home"></my-home>
+       <my-conferences name="conferences" user="{{user}}"></my-conferences>
+       <my-workshops name="workshops" user="{{user}}"></my-workshops>
+       <my-games name="games" user="{{user}}"></my-games>
+       <my-view404 name="view404"></my-view404>
+    </iron-pages>
    </app-header-layout>
-   <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404">
-     <my-home name="home"></my-home>
-     <my-conferences name="conferences"></my-conferences>
-     <my-view404 name="view404"></my-view404>
-  </iron-pages>
  </app-drawer-layout>
 
  <iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
@@ -236,6 +247,11 @@
           value:"inicio",
         },
         user: Object,
+        signedIn: Boolean,
+        isAdmin: {
+          type:Boolean,
+          value:false,
+        },
       },
       observers: [
        '_routePageChanged(routeData.page)'
@@ -251,9 +267,12 @@
       login: function (){
         this.$.auth.signInWithPopup();
       },
-
+      checkSignIn: function(){
+          this.signedIn = (this.user.email == "zolastrodavid@gmail.com");
+      },
       logout: function (){
         this.$.auth.signOut();
+        this.signedIn = false;
       },
       _shareBtn: function(){
         this.$.modal.opened = true;

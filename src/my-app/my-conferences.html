@@ -1,55 +1,100 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+
 <link rel="import" href="shared-styles.html">
 <dom-module id="my-conferences">
-  <template>
+    <template>
   <style include="shared-styles">
     :host {
       display: block;
 
       padding: 10px;
     }
+  paper-fab {
+    --paper-fab-background: var(--app-primary-color);
+  }
   </style>
   <firebase-query
       id="query"
       path="/conferences"
       data="{{data}}">
   </firebase-query>
-
-  <template is="dom-if" if="[[user]]" restamp="true">
-    <paper-button raised on-tap ="logout">Logout</paper-button>
-     <span>[[user.email]]</span>
-  </template>
-  <template is="dom-if" if="[[!user]]" restamp="true">
-    <paper-button raised on-tap ="login">Login</paper-button>
-  </template>
-
+  <h1>Conferencias</h1>
+  <p>El corazón de la hackers <iron-icon icon="favorite" style="color:red;"></iron-icon>
+   </p>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
         <p>
           [[item.text]]
         </p>
+        <span><b>Conferenciante:</b> [[item.author]]</span>
+        <br />
+        <span><b>Fecha:</b> [[item.date]]</span>
       </div>
   </template>
-  <template is="dom-repeat" items="[[data]]" index-as="index">
-    <div class="card">
-        <h1>[[item.title]]</h1>
-        <p>
-          [[item.text]]
-        </p>
-      </div>
-  </template>
+    <span>{{user.role}}</span>
+    <hr />
+    <h1>Añadir conferencia:</h1>
+    <paper-input
+    id="title"
+    label="Título"
+    type="text"
+    name="title">
+  </paper-input>
+  <paper-input
+  id="text"
+  label="Descripción"
+  type="text"
+  name="title">
+</paper-input>
+<paper-input
+  id="author"
+  label="Conferenciante"
+  type="text"
+  name="author">
+</paper-input>
+<paper-input
+  id="date"
+  label="Fecha"
+  type="date"
+  name="date">
+</paper-input>
+<paper-fab id="saveFab" icon="cloud-upload" on-tap="add"></paper-fab>
+<paper-toast id="errorToast" text="¡Debes rellenar todos los datos!" horizontal-align="right"></paper-toast>
 </template>
 
-  <script>
-    Polymer({
-        is: 'my-conferences',
-        properties: {
-          data:Array,
-          user: Object,
-     }
-    });
-  </script>
+
+    <script>
+        Polymer({
+            is: 'my-conferences',
+            properties: {
+                data: Array,
+                user: Object,
+            },
+            add: function() {
+                if (!this.$.text.value || !this.$.title.value || !this.$.author.value || !this.$.date.value) {
+                    this.$.errorToast.open();
+                    return;
+                }
+                this.$.query.ref.push({
+                    text: this.$.text.value,
+                    title: this.$.title.value,
+                    author: this.$.author.value,
+                    date: this.$.date.value
+                });
+
+                this.$.text.value = null;
+                this.$.title.value = null;
+                this.$.date.value = null;
+                this.$.author.value = null;
+            },
+
+        });
+    </script>
 </dom-module>

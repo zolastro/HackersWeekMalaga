@@ -1,0 +1,96 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/google-map/google-map.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+
+</head><body><dom-module id="my-home">
+  <template>
+
+    <style include="shared-styles">
+      :host {
+        text-align: center;
+        display: block;
+        padding: 10px;
+      }
+      google-map{
+        height: 300px;
+      }
+      a {
+        color: #002932
+      }
+      .wrapper {
+        margin-left:10%;
+        width:80%;
+      }
+      .card-container {
+        display: flex;
+        flex-direction: row;
+        height: 160px;
+      }
+      .flex-card {
+        color: #002932;
+        background-color: white;
+        width: 33%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        font-size: 20px;
+      }
+      .cta-container{
+        padding: 30px;
+      }
+      #cta{
+        --paper-button:{
+          background-color: #002932;
+          color:white;
+          font-size:24px;
+        };
+      }
+      h2 {
+        color:#002932;
+      }
+      @media only screen and (max-width: 720px){
+        .card-container {
+          margin-top:30px;
+          display: flex;
+          flex-direction: column;
+          height: auto;
+        }
+        .flex-card {
+          width: 100%;
+          height: 80px;
+        }
+      }
+    </style>
+    <span>[[user.email]]</span>
+    <div class="wrapper card-container">
+      <div class="flex-card">Del 3 al 6 de Abril<br>2017</div>
+      <div class="flex-card">ETSI Informática</div>
+      <div class="flex-card">Para Estudiantes de la UMA para Estudiantes de la UMA</div>
+    </div>
+    <div class="cta-container">
+      <a href="/torneos"><paper-button id="cta">INSCRÍBETE</paper-button></a>
+    </div>
+    <div class="wrapper">
+    La E.T.S. Ingeniería Informática se encuentra en el Campus de Teatinos de la Universidad de Málaga, junto al Hospital Clínico Universitario Virgen de la Victoria. Las conferencias, los talleres y las sesiones de juegos tendrán lugar en el edificio de la escuela; que cuenta con cafetería y zonas de aparcamiento. <br>
+    Se puede venir fácilmente en autobús desde el centro de la ciudad en las <a href="http://www.emtmalaga.es/emt-classic/home.html"><b>las líneas 8, 11 o 25 de la EMT</b></a>, que tienen parada en la Alameda Principal. A ella es rápido llegar desde la <a href="http://www.estabus.emtsam.es/"><b>Estación de Autobuses</b></a>, la estación de tren Málaga-María Zambrano o la estación Málaga Centro-Alameda, donde paran las <a href="http://www.renfe.com/viajeros/cercanias/malaga/"><b>líneas C-1 y C-2 de Cercanías</b></a>.<br>
+
+    También es posible venir mediante la <a href="http://metromalaga.es/"><b>línea 1 del metro de Málaga</b></a> (parada Clínico), que tiene intercambio en la estación Perchel con la Estación de tren Málaga-María Zambrano y la <a href="http://www.estabus.emtsam.es/"><b>Estación de Autobuses</b></a>.
+  </div>
+    <br>
+    <google-map latitude="36.715292" longitude="-4.477115" zoom="16" disable-zoom="" api-key="AIzaSyC2oLHUm0CQcX9sdhRVDGSq7ULDWQaTH6E">
+      <google-map-marker latitude="36.715292" longitude="-4.477115" draggable="true" title="E.T.S.I. Informática"></google-map-marker>
+      <google-map-marker latitude="37.777" longitude="-122.38911"></google-map-marker>
+    </google-map>
+    <br><br><br>
+    <img src="../../images/logo-consejo.jpeg" alt="Consejo de Estudiantes de la ETSI Informática">
+    <br>
+      Twitter: @ConsejoInfUMA<br>
+    
+  </template>
+
+  <script>Polymer({is:"my-home"});</script>
+</dom-module>
+</body></html>
