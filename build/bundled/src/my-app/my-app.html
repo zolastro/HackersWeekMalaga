@@ -1638,6 +1638,10 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
         color: #212121;
         font-size: 22px;
       }
+      header{
+        margin: 24px;
+        padding: 16px;
+      }
     </style>
   </template>
 </dom-module>
@@ -1651,12 +1655,15 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
   paper-fab {
     --paper-fab-background: var(--app-primary-color);
   }
+  
   </style>
   <firebase-query id="query" path="/conferences" data="{{data}}">
   </firebase-query>
-  <h1>Conferencias</h1>
-  <p>El corazón de la hackers <iron-icon icon="favorite" style="color:red"></iron-icon>
-   </p>
+  <header>
+    <h1>Conferencias</h1>
+    <p>El corazón de la hackers <iron-icon icon="favorite" style="color:red"></iron-icon>
+    </p>
+  </header>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
@@ -1666,6 +1673,8 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
         <span><b>Conferenciante:</b> [[item.author]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
+        <br>
+        <span><b>Hora:</b> [[item.time]]</span>
       </div>
   </template>
   <div hidden="[[!user]]">
@@ -1823,6 +1832,9 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
       a {
         color: #002932
       }
+      .logo{
+        width: 80%;
+      }
       .wrapper {
         margin-left:10%;
         width:80%;
@@ -1867,20 +1879,34 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
           width: 100%;
           height: 80px;
         }
+        .logo{
+          width: 100%;
+        }
       }
     </style>
     <span>[[user.email]]</span>
     <div class="wrapper card-container">
-      <div class="flex-card">Del 3 al 6 de Abril<br>2017</div>
-      <div class="flex-card">ETSI Informática</div>
-      <div class="flex-card">Para Estudiantes de la UMA para Estudiantes de la UMA</div>
+      <div class="flex-card"><h3>Del 3 al 6 de Abril<br>2017</h3></div>
+      <div class="flex-card"><h3>ETSI Informática</h3></div>
+      <div class="flex-card"><h3>Para Estudiantes de la UMA y apasionados de la tecnología</h3></div>
     </div>
-     
-    <div class="wrapper">
-    La E.T.S. Ingeniería Informática se encuentra en el Campus de Teatinos de la Universidad de Málaga, junto al Hospital Clínico Universitario Virgen de la Victoria. Las conferencias, los talleres y las sesiones de juegos tendrán lugar en el edificio de la escuela; que cuenta con cafetería y zonas de aparcamiento. <br>
-    Se puede venir fácilmente en autobús desde el centro de la ciudad en las <a href="http://www.emtmalaga.es/emt-classic/home.html"><b>las líneas 8, 11 o 25 de la EMT</b></a>, que tienen parada en la Alameda Principal. A ella es rápido llegar desde la <a href="http://www.estabus.emtsam.es/"><b>Estación de Autobuses</b></a>, la estación de tren Málaga-María Zambrano o la estación Málaga Centro-Alameda, donde paran las <a href="http://www.renfe.com/viajeros/cercanias/malaga/"><b>líneas C-1 y C-2 de Cercanías</b></a>.<br>
 
-    También es posible venir mediante la <a href="http://metromalaga.es/"><b>línea 1 del metro de Málaga</b></a> (parada Clínico), que tiene intercambio en la estación Perchel con la Estación de tren Málaga-María Zambrano y la <a href="http://www.estabus.emtsam.es/"><b>Estación de Autobuses</b></a>.
+    <div class="wrapper">
+      <p>
+        Seguridad informática, programación, talleres prácticos, ¡y mucho más! No te pierdas el evento para estudiantes y desarrolladores en la Universidad de Málaga, abierto gratuitamente a todo el público, del 7 al 10 de abril de 2014. Cuatro días cargados con las últimas tecnologías y los mejores ponentes: Sergio de los Santos, Bernardo Quintero, Jorge del Casar, M. Gonzalo Claros, Ironhack...
+      </p>
+
+      <img class="logo" src="../../images/cartel2017.jpg" alt="Hackers Week 2017">
+
+      <p>
+        La E.T.S. Ingeniería Informática se encuentra en el Campus de Teatinos de la Universidad de Málaga, junto al Hospital Clínico Universitario Virgen de la Victoria. Las conferencias, los talleres y las sesiones de juegos tendrán lugar en el edificio de la escuela; que cuenta con cafetería y zonas de aparcamiento.
+      </p>
+      <p>
+        Se puede venir fácilmente en autobús desde el centro de la ciudad en las <a href="http://www.emtmalaga.es/emt-classic/home.html"><b>las líneas 8, 11 o 25 de la EMT</b></a>, que tienen parada en la Alameda Principal. A ella es rápido llegar desde la <a href="http://www.estabus.emtsam.es/"><b>Estación de Autobuses</b></a>, la estación de tren Málaga-María Zambrano o la estación Málaga Centro-Alameda, donde paran las <a href="http://www.renfe.com/viajeros/cercanias/malaga/"><b>líneas C-1 y C-2 de Cercanías</b></a>.
+      </p>
+      <p>
+        También es posible venir mediante la <a href="http://metromalaga.es/"><b>línea 1 del metro de Málaga</b></a> (parada Clínico), que tiene intercambio en la estación Perchel con la Estación de tren Málaga-María Zambrano y la <a href="http://www.estabus.emtsam.es/"><b>Estación de Autobuses</b></a>.
+      </p>
   </div>
     <br>
     <google-map latitude="36.715292" longitude="-4.477115" zoom="16" disable-zoom="" api-key="AIzaSyC2oLHUm0CQcX9sdhRVDGSq7ULDWQaTH6E">
@@ -1890,7 +1916,7 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
     <br><br><br>
     <img src="../../images/logo-consejo.jpeg" alt="Consejo de Estudiantes de la ETSI Informática">
     <br>
-      Twitter: @ConsejoInfUMA<br>
+      Twitter: <a href="http://www.twitter.com/hackersweek">@HackersWeek</a><br>
     
   </template>
 
@@ -1992,9 +2018,10 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
   </style>
   <firebase-query id="query" path="/workshops" data="{{data}}">
   </firebase-query>
-
-  <h1>Talleres</h1>
-  <p>Para los más atrevidos.  </p>
+  <header>
+    <h1>Talleres</h1>
+    <p>Para los más atrevidos.  </p>
+  </header>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
@@ -2004,6 +2031,8 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
         <span><b>Impartido por:</b> [[item.author]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
+        <br>
+        <span><b>Hora:</b> [[item.time]]</span>
       </div>
   </template>
   <div hidden="[[!user]]">
@@ -2041,9 +2070,10 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
   </style>
   <firebase-query id="query" path="/games" data="{{data}}">
   </firebase-query>
-
-  <h1>Juegos</h1>
-  <p>Saca tu lado friki.  </p>
+  <header>
+    <h1>Juegos</h1>
+    <p>Saca tu lado friki.  </p>
+  </header>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
@@ -3347,6 +3377,7 @@ if(i="Node"==L(),i=l.XMLHttpRequest||i&&firebase.INTERNAL.node&&firebase.INTERNA
 
     }
     paper-tabs {
+
       --paper-tabs:{
          background-color: var(--app-primary-color);
          color: white;
@@ -3358,7 +3389,8 @@ if(i="Node"==L(),i=l.XMLHttpRequest||i&&firebase.INTERNAL.node&&firebase.INTERNA
 
     app-header {
       color: black;
-      height: 20%;
+      height: auto;
+      margin: 0px;
       background-size: contain;
       --app-header-background-front-layer: {
           background-image:url("../../images/hackers-background.png");
@@ -3429,6 +3461,27 @@ if(i="Node"==L(),i=l.XMLHttpRequest||i&&firebase.INTERNAL.node&&firebase.INTERNA
       text-align:center;
     }
 
+    @media only screen and (max-width: 720px){
+      app-header {
+        color: black;
+        height: auto;
+        margin: 0px;
+        background-size: contain;
+        --app-header-background-front-layer: {
+            background-image:url("../../images/hackers-background.png");
+            background-size:contain;
+            width: 80%;
+            background-position:center;
+            margin-left: 20%;
+            background-repeat: no-repeat;
+        };
+
+        background-repeat: no-repeat;
+        background-color: var(--app-primary-color);
+        background-position:  center;
+
+      }
+    }
   </style>
     
     <firebase-app auth-domain="hackersweekmalaga-ea062.firebaseapp.com" database-url="https://hackersweekmalaga-ea062.firebaseio.com" storage-bucket="hackersweekmalaga-ea062.appspot.com" api-key="AIzaSyCA5InjLs8luFX5FZSro8fGfWtiS298NBU">
@@ -3455,7 +3508,7 @@ if(i="Node"==L(),i=l.XMLHttpRequest||i&&firebase.INTERNAL.node&&firebase.INTERNA
 
    <paper-dialog id="modal" modal="">
    <div>
-       <a class="twitter-button" href="http://ctt.ec/ce9me"><paper-button><img src="https://twitter.com/favicons/favicon.ico">&nbsp; Compartir en Twitter</paper-button></a>
+       <a class="twitter-button" href="https://twitter.com/home?status=Hackers%20Week%202017%20en%20la%20ETSII!%20Te%20lo%20vas%20a%20perder?%0Ahttps%3A//goo.gl/by8h49"><paper-button><img src="https://twitter.com/favicons/favicon.ico">&nbsp; Compartir en Twitter</paper-button></a>
    </div>
    <div class="buttons">
      <paper-button dialog-confirm="" autofocus="">Cerrar</paper-button>
@@ -3487,12 +3540,7 @@ if(i="Node"==L(),i=l.XMLHttpRequest||i&&firebase.INTERNAL.node&&firebase.INTERNA
 
          <paper-icon-button class="menu-button" icon="my-icons:menu" drawer-toggle="" hidden$="{{wideLayout}}"></paper-icon-button>
          <paper-icon-button icon="social:share" on-tap="_shareBtn"></paper-icon-button>
-         <template is="dom-if" if="[[user]]" restamp="true">
-             <paper-icon-button icon="social:person" on-tap="logout"></paper-icon-button>
-         </template>
-         <template is="dom-if" if="[[!user]]" restamp="true">
-           <paper-icon-button icon="social:person-outline" on-tap="login"></paper-icon-button>
-         </template>
+         
        </app-toolbar>
 
        <app-toolbar class="desktop" hidden$="{{!wideLayout}}">

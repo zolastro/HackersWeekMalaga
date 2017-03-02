@@ -16,9 +16,10 @@
   </style>
   <firebase-query id="query" path="/games" data="{{data}}">
   </firebase-query>
-
-  <h1>Juegos</h1>
-  <p>Saca tu lado friki.  </p>
+  <header>
+    <h1>Juegos</h1>
+    <p>Saca tu lado friki.  </p>
+  </header>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>

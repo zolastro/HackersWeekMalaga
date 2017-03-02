@@ -1,7 +1,7 @@
 {
   "name": "Hackers Week Malaga",
   "short_name": "Hackers Week Malaga",
-  "start_url": "/",
+  "start_url": "/home",
   "display": "standalone",
   "theme_color": "#3f51b5",
   "background_color": "#3f51b5",
@@ -18,4 +18,3 @@
       }
     ]
 }
- 

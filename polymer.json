@@ -3,7 +3,9 @@
   "shell": "src/my-app/my-app.html",
   "fragments": [
     "src/my-app/my-app.html",
-    "src/my-app/my-conferences.html"
+    "src/my-app/my-conferences.html",
+    "src/my-app/my-workshops.html",
+    "src/my-app/my-games.html"
   ],
   "sourceGlobs": [
     "src/**/*",

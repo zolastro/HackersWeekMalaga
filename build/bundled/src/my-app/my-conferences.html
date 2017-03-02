@@ -8,12 +8,15 @@
   paper-fab {
     --paper-fab-background: var(--app-primary-color);
   }
+  
   </style>
   <firebase-query id="query" path="/conferences" data="{{data}}">
   </firebase-query>
-  <h1>Conferencias</h1>
-  <p>El corazón de la hackers <iron-icon icon="favorite" style="color:red"></iron-icon>
-   </p>
+  <header>
+    <h1>Conferencias</h1>
+    <p>El corazón de la hackers <iron-icon icon="favorite" style="color:red"></iron-icon>
+    </p>
+  </header>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
@@ -23,6 +26,8 @@
         <span><b>Conferenciante:</b> [[item.author]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
+        <br>
+        <span><b>Hora:</b> [[item.time]]</span>
       </div>
   </template>
   <div hidden="[[!user]]">

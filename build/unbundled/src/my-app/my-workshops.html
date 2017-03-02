@@ -16,9 +16,10 @@
   </style>
   <firebase-query id="query" path="/workshops" data="{{data}}">
   </firebase-query>
-
-  <h1>Talleres</h1>
-  <p>Para los más atrevidos.  </p>
+  <header>
+    <h1>Talleres</h1>
+    <p>Para los más atrevidos.  </p>
+  </header>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
@@ -28,6 +29,8 @@
         <span><b>Impartido por:</b> [[item.author]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
+        <br>
+        <span><b>Hora:</b> [[item.time]]</span>
       </div>
   </template>
   <div hidden="[[!user]]">

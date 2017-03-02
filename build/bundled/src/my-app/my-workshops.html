@@ -1,9 +1,4 @@
-<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
-<link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
-<link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
-<link rel="import" href="shared-styles.html">
-</head><body><dom-module id="my-workshops">
+<html><head><meta charset="UTF-8"><link rel="import" href="my-app.html"></head><body><dom-module id="my-workshops">
   <template>
   <style include="shared-styles">
     :host {
@@ -16,9 +11,10 @@
   </style>
   <firebase-query id="query" path="/workshops" data="{{data}}">
   </firebase-query>
-
-  <h1>Talleres</h1>
-  <p>Para los más atrevidos.  </p>
+  <header>
+    <h1>Talleres</h1>
+    <p>Para los más atrevidos.  </p>
+  </header>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
@@ -28,6 +24,8 @@
         <span><b>Impartido por:</b> [[item.author]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
+        <br>
+        <span><b>Hora:</b> [[item.time]]</span>
       </div>
   </template>
   <div hidden="[[!user]]">
