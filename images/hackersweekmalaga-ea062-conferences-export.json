@@ -1,0 +1,64 @@
+{
+  "conferences" :{
+    "2017-04-03 10:00-12:00" :{
+    "author" : "Sergio de los Santos",
+    "date" : "2017-04-03",
+    "text" : "Currently Sergio de los Santos is Innovation and Labs Leader at ElevenPaths, Telefónica Digital España. From 2005 to 2013, he has been a Technical Consultant at Hispasec and the responsible for antifraud and vulnerabilities alert in the oldest security newsletter published in Spanish. Since 2000 he has worked as an auditor and technical coordinator, has written three technical security books and one book about the history of security. Sergio holds a degree in IT Engineering, a M.Sc. in Software Engineering and Artificial Intelligence and has been awarded with Microsoft MVP Consumer Security title in 2013, 2014 and 2015. Sergio is also an assistant professor in a master of Technology and Communication Security in the University of Seville.",
+    "time" : "10:00-12:00",
+    "title" : "Eleven Paths"
+  }, "2017-04-04 17:00-19:00":{
+    "author" : "Rafael Asenjo",
+    "date" : "2017-04-04",
+    "text" : "Rafael Asenjo received his B.S. and M.S. degrees in Telecommunications Engineering in 1993 and his Ph.D. degree in 1997, both from the University of Malaga, Spain. He has been an Associate Professor at the Computer Architecture Dept. Univ. Malaga since 2001. His research interests include programming models, parallel programming, heterogeneous computing, parallelizing compilers and multiprocessor architecture.",
+    "time" : "17:00-19:00",
+    "title" : "Programación en Android a bajo nivel, usando C y ensamblador con la herramienta Neon"
+  }, "2017-04-05 10:00-12:00":{
+    "author" : "Gema Parreño",
+    "text" : "Have excellent analytical skills, passion and stickiness for Artificial Intelligence, data metrics and the ability to turn analysis into the creation, execution of actionable programs , digital campaigns, products and presentations.  Currently IT contractor at BBVA as part of OpenSistemas R&D team. Also Level 2 Trainer for Iris AI.",
+    "title" : "Tensorflow: Diseño de Redes Neuronales",
+    "date" : "2017-04-05",
+    "time" : "10:00-12:00"
+  }, "2017-04-05 17:00-19:00":{
+    "author" : "Fernando Díaz",
+    "date" : "2017-04-05",
+    "text" : "Previamente Ingeniero de Software en Google, Analista de Malware en Hispasec Sistemas actualmente. Tecnologías: Python, Flask, MSVC, Polymer...",
+    "time" : "17:00-19:00",
+    "title" : "Seguridad en Videojuegos"
+  }, "2017-04-04 10:00-12:00":{
+    "author" : "Jorge Barroso",
+    "date" : "2017-04-04",
+    "text" : "Currently Sergio de los Santos is Innovation and Labs Leader at ElevenPaths, Telefónica Digital España. From 2005 to 2013, he has been a Technical Consultant at Hispasec and the responsible for antifraud and vulnerabilities alert in the oldest security newsletter published in Spanish. Since 2000 he has worked as an auditor and technical coordinator, has written three technical security books and one book about the history of security. Sergio holds a degree in IT Engineering, a M.Sc. in Software Engineering and Artificial Intelligence and has been awarded with Microsoft MVP Consumer Security title in 2013, 2014 and 2015. Sergio is also an assistant professor in a master of Technology and Communication Security in the University of Seville.",
+    "time" : "10:00-12:00",
+    "title" : "Introducción de arquitectura en Android"
+  }
+},
+  "games" : {
+    "-Kbl5Wn_e4z9fvopEJcr" : {
+      "date" : "2017-06-02",
+      "place" : "Sala de Grados A",
+      "text" : "¿Quién es el siguiente? Disfruta de la nueva generación de la franquicia de lucha n.º 1. Mortal Kombat X reúne un aspecto cinematográfico y una mecánica de juego nunca vistos. Por primera vez, los jugadores pueden elegir múltiples variantes de cada personaje con impacto tanto en la estrategia como en el estilo de lucha. Bonificación de reserva: Goro, el luchador legendario.",
+      "title" : "Mortal Kombat XL"
+    }
+  },
+  "workshops" : {
+    "2017-04-03 12:00-14:00" : {
+      "author" : "Juan Valero",
+      "date" : "2017-04-03",
+      "time" : "12:00-14:00",
+      "text" : "Pentesting con Python",
+      "title" : "Pentesting con Python"
+    },"2017-04-05 12:00-14:00" : {
+      "author" : "Fran Navarro",
+      "date" : "2017-04-05",
+      "time" : "12:00-14:00",
+      "text" : "Desarrollo de una app con Swift 3",
+      "title" : "Desarrollo de una app con Swift 3"
+    },"2017-04-05 15:00-17:00" : {
+      "author" : "Haritz Puerto",
+      "date" : "2017-04-05",
+      "time" : "15:00-17:00",
+      "text" : "Data Mining en Twitter",
+      "title" : "Data Mining en Twitter"
+    }
+  }
+}
