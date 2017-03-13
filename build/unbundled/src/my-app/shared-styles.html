@@ -5,13 +5,17 @@
   <template>
     <style>
       .card {
-        margin: 24px;
+        margin-left: 10%;
+        margin-top: 24px;
+        width: 80%;
         padding: 16px;
         color: black;
         border-radius: 5px;
         background-color: #fff;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
       }
+
 
       .circle {
         display: inline-block;
@@ -31,8 +35,40 @@
         font-size: 22px;
       }
       header{
-        margin: 24px;
+        margin-left: 10%;
         padding: 16px;
+      }
+      .logo{
+        width: 80%;
+      }
+      .photo {
+        width: 60%;
+        display: block;
+        margin: 0 auto;
+      }
+      @media only screen and (max-width: 720px){
+
+        .logo{
+          width: 100%;
+        }
+        header {
+          margin-left: auto;
+        }
+        .photo {
+          width: 100%;
+          display: block;
+          margin: 0 auto;
+        }
+        .card {
+          width: auto;
+          margin-left: 24px;
+          padding: 16px;
+          color: black;
+          border-radius: 5px;
+          background-color: #fff;
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+        }
       }
     </style>
   </template>

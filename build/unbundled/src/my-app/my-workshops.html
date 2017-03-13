@@ -23,9 +23,13 @@
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
+        <template is="dom-if" if="[[item.photo]]" restamp="true">
+          <img class="photo" src="../../images/workshops/[[item.photo]]">
+        </template>
         <p>
           [[item.text]]
         </p>
+        <br>
         <span><b>Impartido por:</b> [[item.author]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
@@ -33,21 +37,6 @@
         <span><b>Hora:</b> [[item.time]]</span>
       </div>
   </template>
-  <div hidden="[[!user]]">
-
-    <hr>
-    <h1>Añadir taller:</h1>
-    <paper-input id="title" label="Título" type="text" name="title">
-  </paper-input>
-  <paper-input id="text" label="Descripción" type="text" name="description">
-</paper-input>
-<paper-input id="author" label="Impartido por" type="text" name="author">
-</paper-input>
-<paper-input id="date" label="Fecha" type="date" name="date">
-</paper-input>
-<paper-fab id="saveFab" icon="cloud-upload" on-tap="add"></paper-fab>
-<paper-toast id="errorToast" text="¡Debes rellenar todos los datos!" horizontal-align="right"></paper-toast>
-  </div>
 
 
 
