@@ -31,6 +31,7 @@
 <link rel="import" href="../my-app/my-view404.html">
 
 <link rel="import" href="my-icons.html">
+
 </head><body><dom-module id="my-app">
   <template>
   <style>
@@ -48,6 +49,8 @@
 
     }
     paper-tabs {
+      font-weight: bold;
+      font-size: small;
 
       --paper-tabs:{
          background-color: var(--app-primary-color);
@@ -65,7 +68,8 @@
       background-size: contain;
       --app-header-background-front-layer: {
           background-image:url("../../images/hackers-background.png");
-          background-size:contain;
+          background-size:75%;
+          margin-left: 0%;
           background-position: center;
           background-repeat: no-repeat;
       };
@@ -75,19 +79,6 @@
       background-position:  center;
 
     }
-
-/*
-    app-drawer-layout {
-
-      background: rgba(255,255,255,1);
-      background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 64%, rgba(0,41,50,1) 100%);
-      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(64%, rgba(255,255,255,1)), color-stop(100%, rgba(0,41,50,1)));
-      background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 64%, rgba(0,41,50,1) 100%);
-      background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 64%, rgba(0,41,50,1) 100%);
-      background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 64%, rgba(0,41,50,1) 100%);
-      background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 64%, rgba(0,41,50,1) 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#002932', GradientType=0 );
-    }*/
 
     app-drawer {
       --app-drawer-content-container: {
@@ -132,12 +123,9 @@
       text-align:center;
     }
 
-    @media only screen and (max-width: 720px){
+    @media only screen and (max-width : 720px){
       app-header {
-        color: black;
-        height: auto;
-        margin: 0px;
-        background-size: contain;
+
         --app-header-background-front-layer: {
             background-image:url("../../images/hackers-background.png");
             background-size:80%;

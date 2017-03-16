@@ -31,9 +31,14 @@
         <span><b>Fecha:</b> [[item.date]]</span>
         <br>
         <span><b>Hora:</b> [[item.time]]</span>
+        <br>
+        <br>
+        <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
+          <paper-button raised=""><a href="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+        </template>
       </div>
   </template>
-  
+
 
 
 </template>

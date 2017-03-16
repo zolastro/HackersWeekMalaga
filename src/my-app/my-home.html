@@ -19,12 +19,14 @@
         color: #002932
       }
       .logo{
+        margin-bottom: 30%;
         width: 80%;
+        margin-left: 10%;
       }
+
       .logo-colab {
-        width: 100;
-        height: 100px;
-        vertical-align: middle;
+        width: 100%;
+        height: 100%;
       }
       .wrapper {
         margin-left:10%;
@@ -33,7 +35,10 @@
       .card-container {
         display: flex;
         flex-direction: row;
-        text-align: center;
+      }
+      .card-container-logo {
+        display: flex;
+        flex-direction: row;
       }
       .flex-card-2 {
         color: #002932;
@@ -53,7 +58,9 @@
         background-color: white;
         width: 25%;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        margin: 1%;
+
       }
 
       .cta-container{
@@ -76,19 +83,28 @@
           flex-direction: column;
           height: auto;
         }
+        .card-container-logo {
+          margin-top:30px;
+          display: flex;
+          flex-direction: row;
+          height: auto;
+        }
         .flex-card-2 {
           width: 100%;
           margin: 0;
         }
+
         .flex-card-4 {
-          width: 100%;
-          margin: 0;
+          width: 50%;
+          margin: 1%;
         }
         .logo{
           width: 100%;
+          margin: 0;
         }
         .logo-colab {
             width: 70%;
+            margin-left: 15%;
             vertical-align: middle;
         }
 
@@ -96,10 +112,10 @@
     </style>
     <div class = "wrapper card-container" >
       <div class = "flex-card-2">
-      <h3>Del 3 al 6 de Abril<br>2017<br />ETSI Informática</h3>
+      <h3>Del 3 al 6 de Abril<br>2017</h3>
 
       <p>
-        Seguridad informática, programación, talleres prácticos, ¡y mucho más! No te pierdas el evento para estudiantes y desarrolladores en la Universidad de Málaga, abierto gratuitamente a todo el público, del 7 al 10 de abril de 2014. Cuatro días cargados con las últimas tecnologías y los mejores ponentes: Sergio de los Santos, Bernardo Quintero, Jorge del Casar, M. Gonzalo Claros, Ironhack...
+        Seguridad informática, programación, talleres prácticos, ¡y mucho más! No te pierdas el evento para estudiantes y desarrolladores en la Universidad de Málaga, abierto gratuitamente a todo el público, del 3 al 6 de abril de 2017. Cuatro días cargados con las últimas tecnologías y los mejores ponentes: Sergio de los Santos, José Torres, Gema Parreño...
       </p>
 
 
@@ -116,25 +132,27 @@
       </div>
 
       <div class = "flex-card-2">
+        <h3>ETSI Ingeniería<br />Informática</h3>
+        <br />
+        <br />
         <img class ="logo" src="../../images/cartel2017.jpg" alt="Hackers Week 2017">
 
-        <div class = "wrapper card-container" >
+        <div class = "wrapper card-container-logo" >
           <div class = "flex-card-4">
-            <img  class = "logo-colab" src="../../images/logo-consejo.jpeg" alt="Consejo de Estudiantes de la ETSI Informática">
+            <a href="https://twitter.com/consejoinfuma"><img  class = "logo-colab" src="../../images/logo-consejo.jpeg" alt="Consejo de Estudiantes de la ETSI Informática"></a>
           </div>
           <div class = "flex-card-4">
-            <img  class = "logo-colab" src="../../images/gdgMalaga.jpg" alt="Consejo de Estudiantes de la ETSI Informática">
+            <a href="https://twitter.com/gdgmalaga"><img  class = "logo-colab" src="../../images/gdgMalaga.jpg" alt="GDG Málaga"></a>
           </div>
           <div class = "flex-card-4">
-            <img  class = "logo-colab" src="../../images/estudiantesUma.jpg" alt="Consejo de Estudiantes de la ETSI Informática">
+            <a href="https://twitter.com/vestudiantesuma"><img  class = "logo-colab" src="../../images/estudiantesUma.jpg" alt="Vicerrectorado de estudiantes"></a>
           </div>
           <div class = "flex-card-4">
-            <img  class = "logo-colab" src="../../images/uma.jpg" alt="Consejo de Estudiantes de la ETSI Informática">
+            <a href="https://twitter.com/infouma"><img  class = "logo-colab" src="../../images/uma.png" alt="Universidad de Málaga"></a>
           </div>
 
         </div>
-        <br>
-        Twitter: <a href ="http://www.twitter.com/hackersweek">@HackersWeek</a><br>
+
         </div>
       </div>
 

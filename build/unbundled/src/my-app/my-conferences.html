@@ -5,6 +5,7 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/iron-form/iron-form.html">
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <link rel="import" href="shared-styles.html">
 </head><body><dom-module id="my-conferences">
@@ -40,9 +41,14 @@
         <span><b>Fecha:</b> [[item.date]]</span>
         <br>
         <span><b>Hora:</b> [[item.time]]</span>
+        <br>
+        <br>
+        <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
+          <paper-button raised=""><a href="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+        </template>
       </div>
   </template>
-  
+
 
 
 </template>
