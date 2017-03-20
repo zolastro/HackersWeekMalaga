@@ -221,10 +221,10 @@
        </app-toolbar>
        <app-toolbar class ="desktop-tabs drawer-list" hidden$="{{!wideLayout}}">
          <paper-tabs selected="{{page}}" attr-for-selected="name" bottom-item>
-             <paper-tab name="home"><a href ="/home">Inicio</a></paper-tab>
-             <paper-tab name="conferences"><a href ="/conferences">Conferencias</a></paper-tab>
-             <paper-tab name="workshops"><a href ="/workshops">Talleres</a></paper-tab>
-             <paper-tab name="games"><a href ="/games">Juegos</a></paper-tab>
+             <paper-tab name="home"><img src="../../images/homeIcon.png" style="height:60%; padding-left: 30%"/><a href ="/home" style="padding-rigth:30%;">Inicio</a></paper-tab>
+             <paper-tab name="conferences"><img src="../../images/conferencesIcon.png" style="height:60%; padding-left: 30%"/><a href ="/conferences">Conferencias</a></paper-tab>
+             <paper-tab name="workshops" style="padding-rigth:30%;"><img src="../../images/workshopsIcon.png" style="height:60%; padding-left: 30%"/><a href ="/workshops" style="padding-rigth:30%;">Talleres</a></paper-tab>
+             <paper-tab name="games"><img src="../../images/gamesIcon.png" style="height:60%; padding-left: 30%"/><a href ="/games" style="padding-rigth:30%;">Juegos</a></paper-tab>
          </paper-tabs>
        </app-toolbar>
 
@@ -241,8 +241,6 @@
  </app-drawer-layout>
 
  <iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
-
-
 
   </template>
 
