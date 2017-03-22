@@ -26,12 +26,18 @@
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
-        <template is="dom-if" if="[[item.photo]]" restamp="true">
-          <img class="photo" src="../../images/workshops/[[item.photo]]" />
-        </template>
-        <p>
-          [[item.text]]
-        </p>
+        <div class ="card-container">
+          <div class="flex-card-2">
+            <p>
+              [[item.text]]
+            </p>
+          </div>
+          <div class ="flex-card-2">
+            <template is="dom-if" if="[[item.photo]]" restamp="true">
+              <img class="photo" src="../../images/workshops/[[item.photo]]" />
+            </template>
+          </div>
+        </div>
         <br />
         <span><b>Impartido por:</b> [[item.author]]</span>
         <br />
