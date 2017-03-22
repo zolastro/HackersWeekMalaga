@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
 <dom-module id="my-workshops">
   <template>
@@ -47,6 +48,10 @@
         <br />
         <span><b>Lugar:</b> [[item.place]]</span>
         <br />
+        <br />
+        <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
+          <paper-button raised><a href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+        </template>
       </div>
   </template>
 
