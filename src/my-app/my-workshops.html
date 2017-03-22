@@ -44,6 +44,9 @@
         <span><b>Fecha:</b> [[item.date]]</span>
         <br />
         <span><b>Hora:</b> [[item.time]]</span>
+        <br />
+        <span><b>Lugar:</b> [[item.place]]</span>
+        <br />
       </div>
   </template>
 
@@ -67,12 +70,14 @@
             text: this.$.text.value,
             title: this.$.title.value,
             author: this.$.author.value,
-            date: this.$.date.value
+            date: this.$.date.value,
+            place: this.$.place.value
           });
           this.$.text.value = null;
           this.$.title.value = null;
           this.$.date.value = null;
           this.$.author.value = null;
+          this.$.place.value = null;
         },
     });
   </script>
