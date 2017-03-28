@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
 </head><body><dom-module id="my-workshops">
   <template>
@@ -23,18 +24,31 @@
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
-        <template is="dom-if" if="[[item.photo]]" restamp="true">
-          <img class="photo" src="../../images/workshops/[[item.photo]]">
-        </template>
-        <p>
-          [[item.text]]
-        </p>
+        <div class="card-container">
+          <div class="flex-card-2">
+            <p>
+              [[item.text]]
+            </p>
+          </div>
+          <div class="flex-card-2">
+            <template is="dom-if" if="[[item.photo]]" restamp="true">
+              <img class="photo" src="../../images/workshops/[[item.photo]]">
+            </template>
+          </div>
+        </div>
         <br>
         <span><b>Impartido por:</b> [[item.author]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
         <br>
         <span><b>Hora:</b> [[item.time]]</span>
+        <br>
+        <span><b>Lugar:</b> [[item.place]]</span>
+        <br>
+        <br>
+        <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
+          <paper-button raised=""><a href="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+        </template>
       </div>
   </template>
 
@@ -42,6 +56,6 @@
 
 </template>
 
-  <script>Polymer({is:"my-workshops",properties:{data:Array,user:Object},add:function(){return this.$.text.value&&this.$.title.value&&this.$.author.value&&this.$.date.value?(this.$.query.ref.push({text:this.$.text.value,title:this.$.title.value,author:this.$.author.value,date:this.$.date.value}),this.$.text.value=null,this.$.title.value=null,this.$.date.value=null,void(this.$.author.value=null)):void this.$.errorToast.open()}});</script>
+  <script>Polymer({is:"my-workshops",properties:{data:Array,user:Object},add:function(){return this.$.text.value&&this.$.title.value&&this.$.author.value&&this.$.date.value?(this.$.query.ref.push({text:this.$.text.value,title:this.$.title.value,author:this.$.author.value,date:this.$.date.value,place:this.$.place.value}),this.$.text.value=null,this.$.title.value=null,this.$.date.value=null,this.$.author.value=null,void(this.$.place.value=null)):void this.$.errorToast.open()}});</script>
 </dom-module>
 </body></html>

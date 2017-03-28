@@ -8,6 +8,26 @@
     paper-fab {
         --paper-fab-background: var(--app-primary-color);
       }
+    .banner-desktop{
+      width:100%;
+      margin-top:10px;
+      display: block;
+    }
+
+  .banner-mobile{
+    display: none;
+  }
+
+    @media only screen and (max-width: 720px){
+      .banner-desktop{
+         display: none;
+      }
+      .banner-mobile{
+        width:100%;
+        margin-top:10px;
+        display: block;
+      }
+    }
   </style>
   <firebase-query id="query" path="/games" data="{{data}}">
   </firebase-query>
@@ -15,21 +35,29 @@
     <h1>Juegos</h1>
     <p>Saca tu lado friki.  </p>
   </header>
+  <img class="banner-desktop" src="../../images/games/banner.jpg">
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
-        <h1>[[item.title]]</h1>
-        <p>
-          [[item.text]]
-        </p>
-        <span><b>Lugar:</b> [[item.place]]</span>
-        <br>
-        <span><b>Fecha:</b> [[item.date]]</span>
+      <h1>[[item.title]]</h1>
+      <div class="card-container">
+          <div class="flex-card-2">
+            <p>
+              [[item.text]]
+            </p>
+          </div>
+          <template is="dom-if" if="[[item.photo]]" restamp="true">
+          <div class="flex-card-2">
+            <img class="photo" src="../../images/games/[[item.photo]]">
+          </div>
+        </template>
+      </div>
+      <br>
+      <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
+        <paper-button raised=""><a href="[[item.eventbrite]]">Inscríbete</a></paper-button>
+      </template>
       </div>
   </template>
-
-
-
-
+  <img class="banner-mobile" src="../../images/games/banner.jpg">
 </template>
 
   <script>Polymer({is:"my-games",properties:{data:Array,user:Object},add:function(){return this.$.text.value&&this.$.title.value&&this.$.place.value&&this.$.date.value?(this.$.query.ref.push({text:this.$.text.value,title:this.$.title.value,place:this.$.place.value,date:this.$.date.value}),this.$.text.value=null,this.$.title.value=null,this.$.place.value=null,void(this.$.date.value=null)):void this.$.errorToast.open()}});</script>

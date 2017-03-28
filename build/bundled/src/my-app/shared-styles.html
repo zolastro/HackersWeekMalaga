@@ -5,6 +5,7 @@
   <template>
     <style>
       .card {
+        text-align: justify;
         margin-left: 10%;
         margin-top: 24px;
         width: 80%;
@@ -48,18 +49,51 @@
         font-size: 22px;
       }
       header{
-        margin-left: 10%;
-        padding: 16px;
+        text-align: center;
       }
       .logo{
         width: 80%;
       }
       .photo {
         width: 60%;
-        display: block;
-        margin: 0 auto;
+        max-height: 60%;
+        margin-left: 20%;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 50%;
       }
+
+      .card-container {
+        display: flex;
+        flex-direction: row;
+      }
+      .flex-card-2 {
+        color: #002932;
+        background-color: white;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: justify;
+        font-size: 20px;
+        margin: 24px;
+      }
+      .flex-card-2 h3 {
+          text-align: center;
+        }
+
       @media only screen and (max-width: 720px){
+        .card-container {
+          margin-top:30px;
+          display: flex;
+          flex-direction: column;
+          height: auto;
+        }
+        .flex-card-2 {
+          width: 100%;
+          margin: 0;
+        }
 
         .logo{
           width: 100%;
@@ -68,7 +102,7 @@
           margin-left: auto;
         }
         .photo {
-          width: 100%;
+          width: 80%;
           display: block;
           margin: 0 auto;
         }
@@ -80,7 +114,6 @@
           border-radius: 5px;
           background-color: #fff;
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-
         }
       }
     </style>

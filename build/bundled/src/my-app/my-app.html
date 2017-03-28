@@ -1679,6 +1679,7 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
   <template>
     <style>
       .card {
+        text-align: justify;
         margin-left: 10%;
         margin-top: 24px;
         width: 80%;
@@ -1722,18 +1723,51 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
         font-size: 22px;
       }
       header{
-        margin-left: 10%;
-        padding: 16px;
+        text-align: center;
       }
       .logo{
         width: 80%;
       }
       .photo {
         width: 60%;
-        display: block;
-        margin: 0 auto;
+        max-height: 60%;
+        margin-left: 20%;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 50%;
       }
+
+      .card-container {
+        display: flex;
+        flex-direction: row;
+      }
+      .flex-card-2 {
+        color: #002932;
+        background-color: white;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: justify;
+        font-size: 20px;
+        margin: 24px;
+      }
+      .flex-card-2 h3 {
+          text-align: center;
+        }
+
       @media only screen and (max-width: 720px){
+        .card-container {
+          margin-top:30px;
+          display: flex;
+          flex-direction: column;
+          height: auto;
+        }
+        .flex-card-2 {
+          width: 100%;
+          margin: 0;
+        }
 
         .logo{
           width: 100%;
@@ -1742,7 +1776,7 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
           margin-left: auto;
         }
         .photo {
-          width: 100%;
+          width: 80%;
           display: block;
           margin: 0 auto;
         }
@@ -1754,7 +1788,6 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
           border-radius: 5px;
           background-color: #fff;
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-
         }
       }
     </style>
@@ -1782,12 +1815,19 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
-        <template is="dom-if" if="[[item.photo]]" restamp="true">
-          <img class="photo" src="../../images/conferences/[[item.photo]]">
-        </template>
-        <p>
-          [[item.text]]
-        </p>
+        <div class="card-container">
+            <div class="flex-card-2">
+              <p>
+                [[item.text]]
+              </p>
+            </div>
+            <template is="dom-if" if="[[item.photo]]" restamp="true">
+            <div class="flex-card-2">
+              <img class="photo" src="../../images/conferences/[[item.photo]]">
+            </div>
+          </template>
+
+        </div>
         <span><b>Conferenciante:</b> [[item.author]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
@@ -1866,7 +1906,7 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
 
     <style include="shared-styles">
       :host {
-        text-align: center;
+        text-align: justify;
         display: block;
         padding: 10px;
       }
@@ -1877,7 +1917,6 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
         color: #002932
       }
       .logo{
-        margin-bottom: 30%;
         width: 80%;
         margin-left: 10%;
       }
@@ -1906,9 +1945,13 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
         display: flex;
         justify-content: center;
         flex-direction: column;
-        text-align: center;
+        text-align: justify;
         font-size: 20px;
         margin: 24px;
+      }
+
+      .flex-card-2 h3 {
+        text-align: center;
       }
 
       .flex-card-4 {
@@ -1968,40 +2011,38 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
 
       }
     </style>
-    <div class="wrapper card-container">
-      <div class="flex-card-2">
-      <h3>Del 3 al 6 de Abril<br>2017</h3>
-
+    <div class="wrapper">
+      <div class="card-container">
+        <div class="flex-card-2">
+          <h3>Del 3 al 6 de Abril<br>2017</h3>
+        </div>
+        <div class="flex-card-2">
+          <h3>ETSI Ingeniería<br>Informática</h3>
+        </div>
+      </div>
       <p>
-        Seguridad informática, redes nueronales, testing, talleres, ¡ y mucho mas! No te pierdas el evento para estudiantes,  desarrolladores  y amantes de las nuevas tecnologias en la Universidad de Málaga, abierto gratuitamente a todo el público, del 3 al 6 de abril de 2017. Cuatro días cargados con las últimas tecnologías y los mejores ponentes: Sergio de los Santos, Jorge Barroso, Gema Parreño...
+        Seguridad informática, redes neuronales, testing, talleres, ¡y mucho más! No te pierdas el evento para estudiantes,  desarrolladores  y amantes de las nuevas tecnologías en la Universidad de Málaga, abierto gratuitamente a todo el público, del 3 al 6 de abril de 2017. Cuatro días cargados con las últimas tecnologías y los mejores ponentes: Sergio de los Santos, Jorge Barroso, Gema Parreño...
       </p>
-
-
-
+      <br>
+      <img class="logo" src="../../images/horario2017.jpg" alt="Hackers Week 2017">
+      <br>
       <p>
-        La Escuela Tecnica Superior de Ingeniería Informática se encuentra en el Campus de Teatinos de la Universidad de Málaga, junto al Hospital Clínico Universitario Virgen de la Victoria. Las conferencias, los talleres y el resto de actividades tendrán lugar en el edificio de la escuela; que cuenta con cafetería y zonas de aparcamiento.
+        La Escuela Técnica Superior de Ingeniería Informática se encuentra en el Campus de Teatinos de la Universidad de Málaga, junto al Hospital Clínico Universitario Virgen de la Victoria. Las conferencias, los talleres y el resto de actividades tendrán lugar en el edificio de la escuela; que cuenta con cafetería y zonas de aparcamiento.
       </p>
       <p>
          Las diferentes formas de acceso al campus de Teatinos son:
 	      </p><ul>
-		    <li><strong>Desde el aeropuerto de Málaga: </strong> además de los servicios de autobuses de la EMT al centro de la ciudad, existe una estación de cercanias de Renfe dirección centro de la ciudad, con bajada en Estación Renfe María Zambrano donde existe una conexión con la estación de metro "Perchel" donde tomando la línea 1 dirección Andalucía Tech y bajándonos en la estación "Clínico" llegaremos a la Escuela.</li>
+		    <li><strong>Desde el aeropuerto de Málaga: </strong> además de los servicios de autobuses de la EMT al centro de la ciudad, existe una estación de Cercanías de Renfe dirección centro de la ciudad, con bajada en Estación Renfe María Zambrano donde existe una conexión con la estación de metro "Perchel" donde tomando la línea 1 dirección Andalucía Tech y bajándonos en la estación "Clínico" llegaremos a la Escuela.</li>
         <br>
-		    <li><strong>Desde estación de Renfe "María Zambrano"</strong>: tomando el acceso al metro existente en la estación que da acceso a la parada "Perchel", tomaremos la línea 1 direccin Andaluca Tech y bajándonos en la estacin "Clínico" llegaremos a la Escuela.</li>
+		    <li><strong>Desde estación de Renfe "María Zambrano"</strong>: tomando el acceso al metro existente en la estación que da acceso a la parada "Perchel", tomaremos la línea 1 direccin Andalucía Tech y bajándonos en la estación "Clínico" llegaremos a la Escuela.</li>
         <br>
-        <li><strong>En metro: </strong>Las líneas 1 y 2 del Metro de Málaga van desde el Campus universitario de Teatinos al Palacio de los Deportes, unindose en el intercambiador de El Perchel-Mara Zambrano. La línea 1 dirección "Andalucía Tech" con parada "Clínico" se encuentra a menos de 1 minuto de la Escuela (<a href="http://metromalaga.es/" target="_blank">mas información</a>)</li>
+        <li><strong>En metro: </strong>Las líneas 1 y 2 del Metro de Málaga van desde el Campus universitario de Teatinos al Palacio de los Deportes, uniéndose en el intercambiador de El Perchel-María Zambrano. La línea 1 dirección "Andalucía Tech" con parada "Clínico" se encuentra a menos de 1 minuto de la Escuela (<a href="http://metromalaga.es/" target="_blank">mas información</a>)</li>
         <br>
-		    <li><strong>En autobús:</strong> Destino Bulevar Louis Pasteur. Las líneas 8, 11 y 25 llegan muy cerca (menos de 1 min). Desde el centro debe tomar la línea 11 (<a href="http://www.emtmalaga.es/" target="_blank">mas informacin</a>)</li>
+		    <li><strong>En autobús:</strong> Destino Bulevar Louis Pasteur. Las líneas 8, 11 y 25 llegan muy cerca (menos de 1 min). Desde el centro debe tomar la línea 11 (<a href="http://www.emtmalaga.es/" target="_blank">mas información</a>)</li>
           </ul>
       <p></p>
 
-      </div>
-
-      <div class="flex-card-2">
-        <h3>ETSI Ingeniería<br>Informática</h3>
         <br>
-        <br>
-        <img class="logo" src="../../images/cartel2017.jpg" alt="Hackers Week 2017">
-
         <div class="wrapper card-container-logo">
           <div class="flex-card-4">
             <a href="https://twitter.com/consejoinfuma"><img class="logo-colab" src="../../images/logo-consejo.jpeg" alt="Consejo de Estudiantes de la ETSI Informática"></a>
@@ -2018,7 +2059,6 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
 
         </div>
 
-        </div>
       </div>
 
     <div class="wrapper">
@@ -2136,18 +2176,31 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
-        <template is="dom-if" if="[[item.photo]]" restamp="true">
-          <img class="photo" src="../../images/workshops/[[item.photo]]">
-        </template>
-        <p>
-          [[item.text]]
-        </p>
+        <div class="card-container">
+          <div class="flex-card-2">
+            <p>
+              [[item.text]]
+            </p>
+          </div>
+          <div class="flex-card-2">
+            <template is="dom-if" if="[[item.photo]]" restamp="true">
+              <img class="photo" src="../../images/workshops/[[item.photo]]">
+            </template>
+          </div>
+        </div>
         <br>
         <span><b>Impartido por:</b> [[item.author]]</span>
         <br>
         <span><b>Fecha:</b> [[item.date]]</span>
         <br>
         <span><b>Hora:</b> [[item.time]]</span>
+        <br>
+        <span><b>Lugar:</b> [[item.place]]</span>
+        <br>
+        <br>
+        <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
+          <paper-button raised=""><a href="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+        </template>
       </div>
   </template>
 
@@ -2155,7 +2208,7 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
 
 </template>
 
-  <script>Polymer({is:"my-workshops",properties:{data:Array,user:Object},add:function(){return this.$.text.value&&this.$.title.value&&this.$.author.value&&this.$.date.value?(this.$.query.ref.push({text:this.$.text.value,title:this.$.title.value,author:this.$.author.value,date:this.$.date.value}),this.$.text.value=null,this.$.title.value=null,this.$.date.value=null,void(this.$.author.value=null)):void this.$.errorToast.open()}});</script>
+  <script>Polymer({is:"my-workshops",properties:{data:Array,user:Object},add:function(){return this.$.text.value&&this.$.title.value&&this.$.author.value&&this.$.date.value?(this.$.query.ref.push({text:this.$.text.value,title:this.$.title.value,author:this.$.author.value,date:this.$.date.value,place:this.$.place.value}),this.$.text.value=null,this.$.title.value=null,this.$.date.value=null,this.$.author.value=null,void(this.$.place.value=null)):void this.$.errorToast.open()}});</script>
 </dom-module>
 <dom-module id="my-games" assetpath="/">
   <template>
@@ -2167,6 +2220,26 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
     paper-fab {
         --paper-fab-background: var(--app-primary-color);
       }
+    .banner-desktop{
+      width:100%;
+      margin-top:10px;
+      display: block;
+    }
+
+  .banner-mobile{
+    display: none;
+  }
+
+    @media only screen and (max-width: 720px){
+      .banner-desktop{
+         display: none;
+      }
+      .banner-mobile{
+        width:100%;
+        margin-top:10px;
+        display: block;
+      }
+    }
   </style>
   <firebase-query id="query" path="/games" data="{{data}}">
   </firebase-query>
@@ -2174,21 +2247,29 @@ var o={};o[t]=n,Zf(this.u,this,new Uf(o,r.cancel,r.Ma))}return n},g.Ic=function(
     <h1>Juegos</h1>
     <p>Saca tu lado friki.  </p>
   </header>
+  <img class="banner-desktop" src="../../images/games/banner.jpg">
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
-        <h1>[[item.title]]</h1>
-        <p>
-          [[item.text]]
-        </p>
-        <span><b>Lugar:</b> [[item.place]]</span>
-        <br>
-        <span><b>Fecha:</b> [[item.date]]</span>
+      <h1>[[item.title]]</h1>
+      <div class="card-container">
+          <div class="flex-card-2">
+            <p>
+              [[item.text]]
+            </p>
+          </div>
+          <template is="dom-if" if="[[item.photo]]" restamp="true">
+          <div class="flex-card-2">
+            <img class="photo" src="../../images/games/[[item.photo]]">
+          </div>
+        </template>
+      </div>
+      <br>
+      <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
+        <paper-button raised=""><a href="[[item.eventbrite]]">Inscríbete</a></paper-button>
+      </template>
       </div>
   </template>
-
-
-
-
+  <img class="banner-mobile" src="../../images/games/banner.jpg">
 </template>
 
   <script>Polymer({is:"my-games",properties:{data:Array,user:Object},add:function(){return this.$.text.value&&this.$.title.value&&this.$.place.value&&this.$.date.value?(this.$.query.ref.push({text:this.$.text.value,title:this.$.title.value,place:this.$.place.value,date:this.$.date.value}),this.$.text.value=null,this.$.title.value=null,this.$.place.value=null,void(this.$.date.value=null)):void this.$.errorToast.open()}});</script>
@@ -3450,7 +3531,7 @@ if(i="Node"==L(),i=l.XMLHttpRequest||i&&firebase.INTERNAL.node&&firebase.INTERNA
   <template>
   <style>
     :host {
-      --app-primary-color: #002932;
+      --app-primary-color: #062933;
       --app-secondary-color: #004150;
       display: block;
       font-family: 'Roboto', Helvetica, sans-serif;
