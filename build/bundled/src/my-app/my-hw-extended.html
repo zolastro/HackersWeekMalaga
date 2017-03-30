@@ -1,0 +1,80 @@
+<html><head><meta charset="UTF-8"><link rel="import" href="my-app.html"></head><body><dom-module id="my-hw-extended">
+    <template>
+      <style include="shared-styles">
+        :host {
+          display: block;
+          padding: 10px;
+        }
+        paper-fab {
+            --paper-fab-background: var(--app-primary-color);
+          }
+          .countdown{
+          	text-align: center;
+            font-weight: 100;
+          }
+
+      h1{
+        color: var(--app-primary-color);
+        font-weight: 100;
+        font-size: 40px;
+        margin: 40px 0px 20px;
+      }
+
+    #clockdiv{
+
+    	color: #fff;
+    	display: inline-block;
+    	font-weight: bold;
+    	text-align: center;
+    	font-size: 30px;
+    }
+
+    #clockdiv > div{
+    	padding: 10px;
+    	border-radius: 3px;
+    	background: var(--app-primary-color);
+    	display: inline-block;
+    }
+
+    #clockdiv div > span{
+    	padding: 15px;
+    	border-radius: 3px;
+    	background: var(--app-secondary-color);
+    	display: inline-block;
+    }
+
+    .smalltext{
+    	padding-top: 5px;
+    	font-size: 16px;
+    }
+      </style>
+      <div class="countdown">
+        <h1>Hackers&lt;&gt;Week Extended</h1>
+        <div id="clockdiv">
+          <div>
+            <span id="days"></span>
+            <div class="smalltext">Days</div>
+          </div>
+          <div>
+            <span id="hours"></span>
+            <div class="smalltext">Hours</div>
+          </div>
+          <div>
+            <span id="minutes"></span>
+            <div class="smalltext">Minutes</div>
+          </div>
+          <div>
+            <span id="seconds"></span>
+            <div class="smalltext">Seconds</div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <h1>Comming soon!</h1>
+      </div>
+
+    </template>
+    <script>Polymer({is:"my-hw-extended",properties:{data:Array,user:Object},add:function(){return this.$.text.value&&this.$.title.value&&this.$.author.value&&this.$.date.value?(this.$.query.ref.push({text:this.$.text.value,title:this.$.title.value,author:this.$.author.value,date:this.$.date.value}),this.$.text.value=null,this.$.title.value=null,this.$.date.value=null,void(this.$.author.value=null)):void this.$.errorToast.open()}});</script>
+    <script>var countDownDate=new Date("Mar 31, 2017 19:00:00").getTime(),x=setInterval(function(){var e=(new Date).getTime(),t=countDownDate-e,n=Math.floor(t/864e5),o=Math.floor(t%864e5/36e5),a=Math.floor(t%36e5/6e4),l=Math.floor(t%6e4/1e3);document.getElementById("days").innerHTML=n,document.getElementById("hours").innerHTML=o,document.getElementById("minutes").innerHTML=a,document.getElementById("seconds").innerHTML=l,t<0&&(clearInterval(x),document.getElementById("clockdiv").style.display="none")},1e3);</script>
+</dom-module>
+</body></html>

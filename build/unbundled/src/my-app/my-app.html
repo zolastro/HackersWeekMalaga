@@ -28,6 +28,7 @@
 <link rel="import" href="../my-app/my-home.html">
 <link rel="import" href="../my-app/my-workshops.html">
 <link rel="import" href="../my-app/my-games.html">
+<link rel="import" href="../my-app/my-hw-extended.html">
 <link rel="import" href="../my-app/my-view404.html">
 
 <link rel="import" href="my-icons.html">
@@ -140,6 +141,21 @@
         background-position:  center;
 
       }
+      paper-tabs a,
+      paper-tabs a:hover,
+      paper-tabs a:active,
+      paper-tabs a:visited,
+      paper-tabs a:link{
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+
+        margin-top: 40px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+
     }
   </style>
     
@@ -188,6 +204,7 @@
       <paper-item name="conferences"><a href="/conferences">Conferencias</a></paper-item>
       <paper-item name="workshops"><a href="/workshops">Talleres</a></paper-item>
       <paper-item name="games"><a href="/games">Juegos</a></paper-item>
+      <paper-item name="HWExtended"><a href="/HWExtended">H&lt;&gt;W Extended</a></paper-item>
      </paper-menu>
 
    </app-drawer>
@@ -207,10 +224,11 @@
        </app-toolbar>
        <app-toolbar class="desktop-tabs drawer-list" hidden$="{{!wideLayout}}">
          <paper-tabs selected="{{page}}" attr-for-selected="name" bottom-item="">
-             <paper-tab name="home"><img src="../../images/homeIcon.png" style="height:60%; padding-left: 30%"><a href="/home" style="padding-rigth:30%">Inicio</a></paper-tab>
-             <paper-tab name="conferences"><img src="../../images/conferencesIcon.png" style="height:60%; padding-left: 30%"><a href="/conferences">Conferencias</a></paper-tab>
-             <paper-tab name="workshops" style="padding-rigth:30%"><img src="../../images/workshopsIcon.png" style="height:60%; padding-left: 30%"><a href="/workshops" style="padding-rigth:30%">Talleres</a></paper-tab>
-             <paper-tab name="games"><img src="../../images/gamesIcon.png" style="height:60%; padding-left: 30%"><a href="/games" style="padding-rigth:30%">Juegos</a></paper-tab>
+             <paper-tab name="home"><img src="../../images/homeIcon.png" style="height:60%; padding-left: 20%"><a href="/home" style="padding-rigth:30%">Inicio</a></paper-tab>
+             <paper-tab name="conferences"><img src="../../images/conferencesIcon.png" style="height:60%; padding-left: 20%"><a href="/conferences">Conferencias</a></paper-tab>
+             <paper-tab name="workshops" style="padding-rigth:30%"><img src="../../images/workshopsIcon.png" style="height:60%; padding-left: 20%"><a href="/workshops" style="padding-rigth:30%">Talleres</a></paper-tab>
+             <paper-tab name="games"><img src="../../images/gamesIcon.png" style="height:60%; padding-left: 20%"><a href="/games" style="padding-rigth:30%">Juegos</a></paper-tab>
+             <paper-tab name="HWExtended"><img src="../../images/HWExtendedIcon.png" style="height:60%; padding-left: 20%"><a href="/HWExtended" style="padding-rigth:30%">H&lt;&gt;W Extended</a></paper-tab>
          </paper-tabs>
        </app-toolbar>
 
@@ -221,6 +239,7 @@
        <my-conferences name="conferences" user="{{user}}"></my-conferences>
        <my-workshops name="workshops" user="{{user}}"></my-workshops>
        <my-games name="games" user="{{user}}"></my-games>
+       <my-hw-extended name="HWExtended" user="{{user}}"></my-hw-extended>
        <my-view404 name="view404"></my-view404>
     </iron-pages>
    </app-header-layout>

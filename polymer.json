@@ -5,7 +5,8 @@
     "src/my-app/my-app.html",
     "src/my-app/my-conferences.html",
     "src/my-app/my-workshops.html",
-    "src/my-app/my-games.html"
+    "src/my-app/my-games.html",
+    "src/my-app/my-hw-extended.html"
   ],
   "sourceGlobs": [
     "src/**/*",
