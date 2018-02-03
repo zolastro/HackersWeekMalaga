@@ -9,6 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "bower": "^1.8.2",
+    "firebase-tools": "^3.17.4",
     "polymer-cli": "^1.6.0",
     "serve": "^6.4.9"
   },
@@ -19,7 +20,8 @@
     "build": "polymer build --js-compile --js-minify --css-minify --html-minify --bundle --add-service-worker --sw-precache-config sw-precache-config.js",
     "lint": "polymer lint",
     "update": "bower update",
-    "start-release": "serve -c -o -S build/default"
+    "start-release": "serve -c -o -S build/default",
+    "deploy": "firebase deploy"
   },
   "repository": {
     "type": "git",

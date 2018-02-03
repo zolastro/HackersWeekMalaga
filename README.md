@@ -1,5 +1,8 @@
 # HackersWeekMalaga
-The official webpage of the Hackers Week
+The official webpage of the Hackers Week 2018.
+Visit [HackersWeek](https://hackersweek.es).
+Organized by [GDG Málaga](https://github.com/GDGMalaga) 
+and [Consejo de Estudiantes](https://github.com/ConsejoInfUMA)
 
 ## Info for the development environment
 
@@ -9,3 +12,5 @@ The official webpage of the Hackers Week
  - Update bower dependencies `npm run update`
  - Update development dependencies `npm update`
  - Test build version in browser `npm run start-release`
+ - Before first deployment `node_modules/.bin/firebase login`
+ - Deploy `npm run deploy`
