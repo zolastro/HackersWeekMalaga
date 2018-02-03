@@ -35,105 +35,41 @@
 
 <dom-module id="my-app">
   <template>
-  <style>
-    :host {
-      --app-primary-color: #062933;
-      --app-secondary-color: #004150;
-      display: block;
-      font-family: 'Roboto', Helvetica, sans-serif;
-    }
-    app-toolbar {
+    <style>
+      :host {
+        --app-primary-color: #062933;
+        --app-secondary-color: #004150;
+        display: block;
+        font-family: 'Roboto', Helvetica, sans-serif;
+      }
+      .desktop {
+        color: white;
 
-    }
-     .desktop {
-      color: white;
+      }
+      paper-tabs {
+        font-weight: bold;
+        font-size: small;
 
-    }
-    paper-tabs {
-      font-weight: bold;
-      font-size: small;
+        --paper-tabs:{
+          background-color: var(--app-primary-color);
+          color: white;
+        };
+      }
+      .mobile {
+        color: black;
+      }
 
-      --paper-tabs:{
-         background-color: var(--app-primary-color);
-         color: white;
-       };
-    }
-     .mobile {
-      color: black;
-    }
-
-    app-header {
-      color: black;
-      height: auto;
-      margin: 0px;
-      background-size: contain;
-      --app-header-background-front-layer: {
+      app-header {
+        color: black;
+        height: auto;
+        margin: 0px;
+        background-size: contain;
+        --app-header-background-front-layer: {
           background-image:url("../../images/hackers-background.png");
           background-size:75%;
           margin-left: 0%;
           background-position: center;
           background-repeat: no-repeat;
-      };
-
-      background-repeat: no-repeat;
-      background-color: var(--app-primary-color);
-      background-position:  center;
-
-    }
-
-    app-drawer {
-      --app-drawer-content-container: {
-        color:black;
-        box-shadow: 1px 0 2px 1px rgba(0,0,0,0.18);
-      }
-    }
-
-    .drawer-list a{
-      text-decoration: none;
-      text-align: center;
-      vertical-align: middle;
-      color: inherit;
-    }
-
-    paper-tab {
-
-        --paper-tab-ink: white;
-    }
-    paper-tabs{
-         --paper-tabs:{
-           background-color: var(--app-primary-color);
-         };
-         --paper-tabs-selection-bar-color: white;
-       }
-
-   paper-tabs a,
-   paper-tabs a:hover,
-   paper-tabs a:active,
-   paper-tabs a:visited,
-   paper-tabs a:link{
-     color: white;
-     text-decoration: none;
-     font-weight: bold;
-     margin-top: 20px;
-     vertical-align: middle;
-   }
-
-    .twitter-button{
-      text-decoration:none;
-      color:inherit;
-      text-align:center;
-    }
-
-    @media only screen and (max-width : 720px){
-      app-header {
-
-        --app-header-background-front-layer: {
-            background-image:url("../../images/hackers-background.png");
-            background-size:80%;
-            width: 80%;
-            background-position:center;
-            margin-left: 20%;
-            background-repeat: no-repeat;
         };
 
         background-repeat: no-repeat;
@@ -141,6 +77,32 @@
         background-position:  center;
 
       }
+
+      app-drawer {
+        --app-drawer-content-container: {
+          color:black;
+          box-shadow: 1px 0 2px 1px rgba(0,0,0,0.18);
+        }
+      }
+
+      .drawer-list a{
+        text-decoration: none;
+        text-align: center;
+        vertical-align: middle;
+        color: inherit;
+      }
+
+      paper-tab {
+
+        --paper-tab-ink: white;
+      }
+      paper-tabs{
+        --paper-tabs:{
+          background-color: var(--app-primary-color);
+        };
+        --paper-tabs-selection-bar-color: white;
+      }
+
       paper-tabs a,
       paper-tabs a:hover,
       paper-tabs a:active,
@@ -149,167 +111,236 @@
         color: white;
         text-decoration: none;
         font-weight: bold;
-        font-size: 13px;
-
-        margin-top: 40px;
-        margin-left: 10px;
         vertical-align: middle;
       }
 
-    }
-  </style>
+      .twitter-button{
+        text-decoration:none;
+        color:inherit;
+        text-align:center;
+      }
+
+      .vertical-align {
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%
+      }
+
+      @media only screen and (max-width : 720px){
+        app-header {
+
+          --app-header-background-front-layer: {
+            background-image:url("../../images/hackers-background.png");
+            background-size:80%;
+            width: 80%;
+            background-position:center;
+            margin-left: 20%;
+            background-repeat: no-repeat;
+          };
+
+          background-repeat: no-repeat;
+          background-color: var(--app-primary-color);
+          background-position:  center;
+
+        }
+        paper-tabs a,
+        paper-tabs a:hover,
+        paper-tabs a:active,
+        paper-tabs a:visited,
+        paper-tabs a:link{
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 13px;
+
+          margin-top: 40px;
+          margin-left: 10px;
+          vertical-align: middle;
+        }
+
+      }
+    </style>
     <!-- We link our application to firebase -->
     <firebase-app
     auth-domain= "hackersweekmalaga-ea062.firebaseapp.com"
     database-url= "https://hackersweekmalaga-ea062.firebaseio.com"
     storage-bucket= "hackersweekmalaga-ea062.appspot.com"
     api-key= "INTRODUCE YOUR API-KEY">
-   </firebase-app>
+  </firebase-app>
 
-   <firebase-auth id="auth" user="{{user}}" provider ="google" on-error ="handleError">
-   </firebase-auth>
+  <firebase-auth id="auth" user="{{user}}" provider ="google" on-error ="handleError">
+  </firebase-auth>
 
-   <app-location route="{{route}}"></app-location>
-   <app-route
-     route="{{route}}"
-     pattern="/:page"
-     data="{{routeData}}"
-     tail="{{subroute}}">
-   </app-route>
-
-
-   <!-- Twitter Modal-->
-   <paper-dialog id="modal" modal>
-   <div>
-       <a class ="twitter-button" href="http://ctt.ec/ce9me" ><paper-button><img src ="https://twitter.com/favicons/favicon.ico"/>&nbsp; Compartir en Twitter</paper-button></a>
-   </div>
-   <div class="buttons">
-     <paper-button dialog-confirm autofocus>Cerrar</paper-button>
-   </div>
- </paper-dialog>
+  <app-location route="{{route}}"></app-location>
+  <app-route
+  route="{{route}}"
+  pattern="/:page"
+  data="{{routeData}}"
+  tail="{{subroute}}">
+</app-route>
 
 
-   <paper-dialog id="modal" modal>
-   <div>
-       <a class ="twitter-button" href="https://twitter.com/home?status=Vuelve%20la%20%40HackersWeek%20%F0%9F%94%A5%20del%203%20al%206%20de%20Abril%20en%20%40InformaticaUMA%20%E2%9E%A1%EF%B8%8F%20https%3A//hackersweek.com%20%23HackersWeek4" ><paper-button><img src ="https://twitter.com/favicons/favicon.ico"/>&nbsp; Compartir en Twitter</paper-button></a>
-   </div>
-   <div class="buttons">
-     <paper-button dialog-confirm autofocus>Cerrar</paper-button>
-   </div>
- </paper-dialog>
+<!-- Twitter Modal-->
+<paper-dialog id="modal" modal>
+  <div>
+    <a class ="twitter-button" href="http://ctt.ec/ce9me" ><paper-button><img src ="https://twitter.com/favicons/favicon.ico"/>&nbsp; Compartir en Twitter</paper-button></a>
+  </div>
+  <div class="buttons">
+    <paper-button dialog-confirm autofocus>Cerrar</paper-button>
+  </div>
+</paper-dialog>
 
 
-   <app-drawer-layout force-narrow>
+<paper-dialog id="modal" modal>
+  <div>
+    <a class ="twitter-button" href="https://twitter.com/home?status=Vuelve%20la%20%40HackersWeek%20%F0%9F%94%A5%20del%2019%20al%2022%20de%20Marzo%20en%20%40InformaticaUMA%20%E2%9E%A1%EF%B8%8F%20https%3A%2F%2Fhackersweek.es%20%23HackersWeek5" ><paper-button><img src ="https://twitter.com/favicons/favicon.ico"/>&nbsp; Compartir en Twitter</paper-button></a>
+  </div>
+  <div class="buttons">
+    <paper-button dialog-confirm autofocus>Cerrar</paper-button>
+  </div>
+</paper-dialog>
 
-   <app-drawer id="drawer">
 
-     <!-- an empty toolbar in the drawer looks like a
-          continuation of the main toolbar. It's optional. -->
-     <app-toolbar class="mobile">Menu</app-toolbar>
+<app-drawer-layout force-narrow>
 
-     <!-- Nav on mobile: side nav menu -->
-     <paper-menu class ="mobile drawer-list" selected="{{page}}" attr-for-selected="name">
-      <paper-item name="home">  <a href ="/home">Inicio</a></paper-item>
-      <paper-item name="conferences"><a href ="/conferences">Conferencias</a></paper-item>
-      <paper-item name="workshops"><a href ="/workshops">Talleres</a></paper-item>
-      <paper-item name="games"><a href ="/games">Juegos</a></paper-item>
-      <paper-item name="HWExtended"><a href ="/HWExtended">H&lt;&gt;W Extended</a></paper-item>
-     </paper-menu>
+  <app-drawer id="drawer">
 
-   </app-drawer>
-   <app-header-layout >
-     <app-header class="main-header" fixed condenses effects="fade-background">
+    <!-- an empty toolbar in the drawer looks like a
+      continuation of the main toolbar. It's optional. -->
+      <app-toolbar class="mobile">Menu</app-toolbar>
 
-       <app-toolbar class="desktop">
-         <!-- drawer toggle button -->
+      <!-- Nav on mobile: side nav menu -->
+      <paper-menu class ="mobile drawer-list" selected="{{page}}" attr-for-selected="name">
+        <paper-item name="home">  <a href ="/home">Inicio</a></paper-item>
+        <paper-item name="conferences"><a href ="/conferences">Conferencias</a></paper-item>
+        <paper-item name="workshops"><a href ="/workshops">Talleres</a></paper-item>
+        <paper-item name="games"><a href ="/games">Juegos</a></paper-item>
+        <paper-item name="HWExtended"><a href ="/HWExtended">H&lt;&gt;W Extended</a></paper-item>
+      </paper-menu>
 
-         <paper-icon-button class="menu-button" icon="my-icons:menu" drawer-toggle hidden$="{{wideLayout}}"></paper-icon-button>
-         <paper-icon-button icon="social:share" on-tap="_shareBtn"></paper-icon-button>
-         <!--
-         <template is="dom-if" if="[[user]]" restamp="true">
-             <paper-icon-button icon="social:person" on-tap="logout"></paper-icon-button>
-         </template>
-         <template is="dom-if" if="[[!user]]" restamp="true">
-           <paper-icon-button icon="social:person-outline" on-tap="login"></paper-icon-button>
-         </template>
-         -->
-       </app-toolbar>
+    </app-drawer>
+    <app-header-layout >
+      <app-header class="main-header" fixed condenses effects="fade-background">
 
-       <app-toolbar class="desktop" hidden$="{{!wideLayout}}">
-         <!-- Nav on desktop: tabs -->
-       </app-toolbar>
-       <app-toolbar class ="desktop-tabs drawer-list" hidden$="{{!wideLayout}}">
-         <paper-tabs selected="{{page}}" attr-for-selected="name" bottom-item>
-             <paper-tab name="home"><img src="../../images/homeIcon.png" style="height:60%; padding-left: 20%"/><a href ="/home" style="padding-rigth:30%;">Inicio</a></paper-tab>
-             <paper-tab name="conferences"><img src="../../images/conferencesIcon.png" style="height:60%; padding-left: 20%"/><a href ="/conferences">Conferencias</a></paper-tab>
-             <paper-tab name="workshops" style="padding-rigth:30%;"><img src="../../images/workshopsIcon.png" style="height:60%; padding-left: 20%"/><a href ="/workshops" style="padding-rigth:30%;">Talleres</a></paper-tab>
-             <paper-tab name="games"><img src="../../images/gamesIcon.png" style="height:60%; padding-left: 20%"/><a href ="/games" style="padding-rigth:30%;">Juegos</a></paper-tab>
-             <paper-tab name="HWExtended"><img src="../../images/HWExtendedIcon.png" style="height:60%; padding-left: 20%"/><a href ="/HWExtended" style="padding-rigth:30%;">H&lt;&gt;W Extended</a></paper-tab>
-         </paper-tabs>
-       </app-toolbar>
+        <app-toolbar class="desktop">
+          <!-- drawer toggle button -->
 
-     </app-header>
-     <!-- Content goes here! -->
-     <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404">
-       <my-home name="home"></my-home>
-       <my-conferences name="conferences" user="{{user}}"></my-conferences>
-       <my-workshops name="workshops" user="{{user}}"></my-workshops>
-       <my-games name="games" user="{{user}}"></my-games>
-       <my-hw-extended name="HWExtended" user="{{user}}"></my-hw-extended>
-       <my-view404 name="view404"></my-view404>
-    </iron-pages>
-   </app-header-layout>
- </app-drawer-layout>
+          <paper-icon-button class="menu-button" icon="my-icons:menu" drawer-toggle hidden$="{{wideLayout}}"></paper-icon-button>
+          <paper-icon-button icon="social:share" on-tap="_shareBtn"></paper-icon-button>
+          <!--
+            <template is="dom-if" if="[[user]]" restamp="true">
+              <paper-icon-button icon="social:person" on-tap="logout"></paper-icon-button>
+            </template>
+            <template is="dom-if" if="[[!user]]" restamp="true">
+              <paper-icon-button icon="social:person-outline" on-tap="login"></paper-icon-button>
+            </template>
+          -->
+        </app-toolbar>
 
- <iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
+        <app-toolbar class="desktop" hidden$="{{!wideLayout}}">
+          <!-- Nav on desktop: tabs -->
+        </app-toolbar>
+        <app-toolbar class ="desktop-tabs drawer-list" hidden$="{{!wideLayout}}">
+          <paper-tabs selected="{{page}}" attr-for-selected="name" bottom-item>
+            <paper-tab name="home">
+              <img src="../../images/homeIcon.png" style="height:60%"/>
+              <div class="vertical-align">
+                <a href ="/home">Inicio</a>
+              </div>
+            </paper-tab>
+            <!--<paper-tab name="conferences">
+              <img src="../../images/conferencesIcon.png" style="height:60%"/>
+              <div class="vertical-align">
+                <a href ="/conferences">Conferencias</a>
+              </div>
+            </paper-tab>
+            <paper-tab name="workshops">
+              <img src="../../images/workshopsIcon.png" style="height:60%"/>
+              <div class="vertical-align">
+                <a href ="/workshops">Talleres</a>
+              </div>
+            </paper-tab>
+            <paper-tab name="games">
+              <img src="../../images/gamesIcon.png" style="height:60%"/>
+              <div class="vertical-align">
+                <a href ="/games">Juegos</a>
+              </div>
+            </paper-tab>
+            <paper-tab name="HWExtended">
+              <img src="../../images/HWExtendedIcon.png" style="height:60%"/>
+              <div class="vertical-align">
+                <a href ="/HWExtended">H&lt;&gt;W Extended</a>
+              </div>
+            </paper-tab>-->
+          </paper-tabs>
+        </app-toolbar>
 
-  </template>
+      </app-header>
+      <!-- Content goes here! -->
+      <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404">
+        <my-home name="home"></my-home>
+        <my-conferences name="conferences" user="{{user}}"></my-conferences>
+        <my-workshops name="workshops" user="{{user}}"></my-workshops>
+        <my-games name="games" user="{{user}}"></my-games>
+        <my-hw-extended name="HWExtended" user="{{user}}"></my-hw-extended>
+        <my-view404 name="view404"></my-view404>
+      </iron-pages>
+    </app-header-layout>
+  </app-drawer-layout>
 
-  <script>
-    Polymer({
+  <iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
 
-      is: 'my-app',
+</template>
 
-      properties: {
-        page: {
-          type: String,
-          reflectToAttribute: true,
-          value:"inicio",
-        },
-        user: Object,
-        signedIn: Boolean,
-        isAdmin: {
-          type:Boolean,
-          value:false,
-        },
+<script>
+  Polymer({
+
+    is: 'my-app',
+
+    properties: {
+      page: {
+        type: String,
+        reflectToAttribute: true,
+        value:"inicio",
       },
-      observers: [
-       '_routePageChanged(routeData.page)'
-     ],
-     _routePageChanged: function(page) {
-       this.page = page || 'home';
-     },
-     _pageChanged: function(page) {
-       // Load page import on demand. Show 404 page if fails
-       var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
-       this.importHref(resolvedPageUrl, null, this._showPage404, true);
-     },
-      login: function (){
-        this.$.auth.signInWithPopup();
+      user: Object,
+      signedIn: Boolean,
+      isAdmin: {
+        type:Boolean,
+        value:false,
       },
-      checkSignIn: function(){
-          this.signedIn = (this.user.email == "zolastrodavid@gmail.com");
-      },
-      logout: function (){
-        this.$.auth.signOut();
-        this.signedIn = false;
-      },
-      _shareBtn: function(){
-        this.$.modal.opened = true;
-      },
-      handleError: function(){
-        //Handle an auth error
-      },
-    });
-  </script>
+    },
+    observers: [
+    '_routePageChanged(routeData.page)'
+    ],
+    _routePageChanged: function(page) {
+      this.page = page || 'home';
+    },
+    _pageChanged: function(page) {
+      // Load page import on demand. Show 404 page if fails
+      var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+      this.importHref(resolvedPageUrl, null, this._showPage404, true);
+    },
+    login: function (){
+      this.$.auth.signInWithPopup();
+    },
+    checkSignIn: function(){
+      this.signedIn = (this.user.email == "zolastrodavid@gmail.com");
+    },
+    logout: function (){
+      this.$.auth.signOut();
+      this.signedIn = false;
+    },
+    _shareBtn: function(){
+      this.$.modal.opened = true;
+    },
+    handleError: function(){
+      //Handle an auth error
+    },
+  });
+</script>
 </dom-module>
