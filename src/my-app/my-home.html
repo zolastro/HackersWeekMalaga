@@ -132,9 +132,16 @@
 
       #clockdiv > div {
         padding: 10px;
-        border-radius: 3px;
         background: var(--app-primary-color);
         display: inline-block;
+      }
+
+      #clockdiv > div:first-of-type {
+        border-radius: 3px 0 0 3px;
+      }
+
+      #clockdiv > div:last-of-type {
+        border-radius: 0 3px 3px 0;
       }
 
       #clockdiv div > span {
@@ -206,7 +213,7 @@
             <span id="seconds"></span>
             <div class="smalltext">Seconds</div>
           </div>
-          <h1>Comming soon!</h1>
+          <h1>Coming soon!</h1>
         </div>
       </div>
       <p>
@@ -265,27 +272,30 @@
   });
 </script>
 <script>
-  const countDownDate = new Date("Mar 19, 2018 10:20:00").getTime();
+  (() => {
+    const countdownDate = new Date("Mar 19, 2018 10:20:00").getTime();
 
-  let x = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = countDownDate - now;
+    var x = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
 
-    if(distance < 0) {
-      clearInterval(x);
-      document.getElementById("clockdiv").style.display = "none";
-      document.getElementById("info").style.display  = "block";
-    }
-  }, 1000);
+      if(distance < 0) {
+        clearInterval(x);
+        document.getElementById("clockdiv").style.display = "none";
+      } else {
+        document.getElementById("clockdiv").style.display = "block";
+      }
+    }, 1000);
+  })();
 </script>
 </dom-module>
