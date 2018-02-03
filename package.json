@@ -1,0 +1,34 @@
+{
+  "name": "hackersweekmalaga",
+  "version": "1.0.0",
+  "description": "The official webpage of the Hackers Week",
+  "main": "service-worker.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.8.2",
+    "polymer-cli": "^1.6.0",
+    "serve": "^6.4.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "polymer serve",
+    "postinstall": "bower install",
+    "build": "polymer build",
+    "lint": "polymer lint",
+    "update": "bower update",
+    "start-release": "serve -c -o -S build/default"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConsejoInfUMA/HackersWeekMalaga.git"
+  },
+  "author": "ConsejoInfUMA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ConsejoInfUMA/HackersWeekMalaga/issues"
+  },
+  "homepage": "https://github.com/ConsejoInfUMA/HackersWeekMalaga#readme"
+}
