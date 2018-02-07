@@ -14,3 +14,5 @@ and [Consejo de Estudiantes](https://github.com/ConsejoInfUMA)
  - Test build version in browser `npm run start-release`
  - Before first deployment `node_modules/.bin/firebase login`
  - Deploy `npm run deploy`
+
+ > **Note**: Currently, to deploy the app, use `./rdeploy.sh` script.
