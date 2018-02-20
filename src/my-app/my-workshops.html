@@ -14,6 +14,21 @@
     paper-fab {
         --paper-fab-background: var(--app-primary-color);
       }
+      .flex-card-image {
+          max-height: 50vh;
+          background: no-repeat center;
+          background-size: contain;
+      }
+      @media(min-height: 760px) {
+          .flex-card-image {
+              max-height: 380px;
+          }
+      }
+      .flex-card-image:after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+      }
   </style>
   <firebase-query
       id="query"
@@ -22,12 +37,9 @@
   </firebase-query>
   <header>
     <h1>Talleres</h1>
-    <!--<p>Para los más atrevidos.  </p>-->
-      <p>Eyy! ¡No tan rápido! <br>Estamos acabando los últimos detalles, no tengas tantas prisas!
-      <br> ¡Ten paciencia y estáte atento a nuestras Redes Sociales para las confirmaciones de este año!
-      </p>
+    <p>Para los más atrevidos. </p>
   </header>
-  <!--
+
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
@@ -37,20 +49,26 @@
               [[item.text]]
             </p>
           </div>
-          <div class ="flex-card-2">
+          <div class ="flex-card-2 flex-card-image" style="background-image: url('../images/workshops/[[item.photo]]');">
             <template is="dom-if" if="[[item.photo]]" restamp="true">
-              <img class="photo" src="../../images/workshops/[[item.photo]]" />
+              <!--<img class="photo" src="../../images/workshops/[[item.photo]]" />-->
             </template>
           </div>
         </div>
         <br />
         <span><b>Impartido por:</b> [[item.author]]</span>
         <br />
-        <span><b>Fecha:</b> [[item.date]]</span>
+        <template is="dom-if" if="[[item.date]]" restamp="true">
+            <span><b>Fecha:</b> [[item.date]]</span>
+        </template>
         <br />
-        <span><b>Hora:</b> [[item.time]]</span>
+        <template is="dom-if" if="[[item.time]]" restamp="true">
+            <span><b>Hora:</b> [[item.time]]</span>
+        </template>
         <br />
-        <span><b>Lugar:</b> [[item.place]]</span>
+        <template is="dom-if" if="[[item.place]]" restamp="true">
+            <span><b>Lugar:</b> [[item.place]]</span>
+        </template>
         <br />
         <br />
         <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
@@ -62,7 +80,7 @@
         </template>
       </div>
   </template>
-  -->
+
 
 
 

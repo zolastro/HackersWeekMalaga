@@ -216,9 +216,9 @@
       <!-- Nav on mobile: side nav menu -->
       <paper-menu class ="mobile drawer-list" selected="{{page}}" attr-for-selected="name">
         <paper-item name="home">  <a href ="/home">Inicio</a></paper-item>
-        <!--<paper-item name="conferences"><a href ="/conferences">Conferencias</a></paper-item>
+        <!--<paper-item name="conferences"><a href ="/conferences">Conferencias</a></paper-item>-->
         <paper-item name="workshops"><a href ="/workshops">Talleres</a></paper-item>
-        <paper-item name="games"><a href ="/games">Juegos</a></paper-item>
+        <!--<paper-item name="games"><a href ="/games">Juegos</a></paper-item>
         <paper-item name="HWExtended"><a href ="/HWExtended">H&lt;&gt;W Extended</a></paper-item>-->
       </paper-menu>
 
@@ -257,14 +257,14 @@
               <div class="vertical-align">
                 <a href ="/conferences">Conferencias</a>
               </div>
-            </paper-tab>
+            </paper-tab>-->
             <paper-tab name="workshops">
               <img src="../../images/workshopsIcon.png" style="height:60%"/>
               <div class="vertical-align">
                 <a href ="/workshops">Talleres</a>
               </div>
             </paper-tab>
-            <paper-tab name="games">
+            <!--<paper-tab name="games">
               <img src="../../images/gamesIcon.png" style="height:60%"/>
               <div class="vertical-align">
                 <a href ="/games">Juegos</a>
@@ -283,9 +283,9 @@
       <!-- Content goes here! -->
       <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404">
         <my-home name="home"></my-home>
-        <!--<my-conferences name="conferences" user="{{user}}"></my-conferences>
+        <!--<my-conferences name="conferences" user="{{user}}"></my-conferences>-->
         <my-workshops name="workshops" user="{{user}}"></my-workshops>
-        <my-games name="games" user="{{user}}"></my-games>
+        <!--<my-games name="games" user="{{user}}"></my-games>
         <my-hw-extended name="HWExtended" user="{{user}}"></my-hw-extended>-->
         <my-view404 name="view404"></my-view404>
       </iron-pages>
