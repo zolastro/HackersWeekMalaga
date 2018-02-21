@@ -246,31 +246,31 @@
         </app-toolbar>
         <app-toolbar class ="desktop-tabs drawer-list" hidden$="{{!wideLayout}}">
           <paper-tabs selected="{{page}}" attr-for-selected="name" bottom-item>
-            <paper-tab name="home">
+            <paper-tab name="home" on-click="ensurePath">
               <img src="../../images/homeIcon.png" style="height:60%"/>
               <div class="vertical-align">
                 <a href ="/home">Inicio</a>
               </div>
             </paper-tab>
-            <!--<paper-tab name="conferences">
+            <!--<paper-tab name="conferences" on-click="ensurePath">
               <img src="../../images/conferencesIcon.png" style="height:60%"/>
               <div class="vertical-align">
                 <a href ="/conferences">Conferencias</a>
               </div>
             </paper-tab>-->
-            <paper-tab name="workshops">
+            <paper-tab name="workshops" on-click="ensurePath">
               <img src="../../images/workshopsIcon.png" style="height:60%"/>
               <div class="vertical-align">
                 <a href ="/workshops">Talleres</a>
               </div>
             </paper-tab>
-            <!--<paper-tab name="games">
+            <!--<paper-tab name="games" on-click="ensurePath">
               <img src="../../images/gamesIcon.png" style="height:60%"/>
               <div class="vertical-align">
                 <a href ="/games">Juegos</a>
               </div>
             </paper-tab>
-            <paper-tab name="HWExtended">
+            <paper-tab name="HWExtended" on-click="ensurePath">
               <img src="../../images/HWExtendedIcon.png" style="height:60%"/>
               <div class="vertical-align">
                 <a href ="/HWExtended">H&lt;&gt;W Extended</a>
@@ -341,6 +341,10 @@
     handleError: function(){
       //Handle an auth error
     },
+    ensurePath: e => {
+      let page = e.currentTarget.attributes.name.value;
+      window.history.pushState(page, 'Hackers Week Málaga', window.location.origin + '/' + page);
+    }
   });
 </script>
 </dom-module>
