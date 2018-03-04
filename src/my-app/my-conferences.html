@@ -27,11 +27,7 @@
   </firebase-query>
   <header>
     <h1>Conferencias</h1>
-    <!--<p>El corazón de la hackers <iron-icon icon="favorite" style="color:red;"></iron-icon>-->
-    </p>
-      <p>Una de las cualidades más destacables de los programadores es la paciencia, <br>¿Porqué tantas prisas? ;)<br>
-      ¡Ten paciencia y estáte atento a nuestras Redes Sociales para las confirmaciones de este año!
-      </p>
+    <p>El corazón de la hackers <iron-icon icon="favorite" style="color:red;"></iron-icon>
   </header>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
@@ -51,9 +47,17 @@
         </div>
         <span><b>Conferenciante:</b> [[item.author]]</span>
         <br />
-        <span><b>Fecha:</b> [[item.date]]</span>
+        <template is="dom-if" if="[[item.date]]" restamp="true">
+            <span><b>Fecha:</b> [[item.date]]</span>
+        </template>
         <br />
-        <span><b>Hora:</b> [[item.time]]</span>
+        <template is="dom-if" if="[[item.time]]" restamp="true">
+            <span><b>Hora:</b> [[item.time]]</span>
+        </template>
+        <br />
+        <template is="dom-if" if="[[item.place]]" restamp="true">
+            <span><b>Lugar:</b> [[item.place]]</span>
+        </template>
         <br />
         <br />
         <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
