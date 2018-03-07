@@ -7,12 +7,14 @@ if [[ ! -d "build" || ! -d "build/default" ]]; then
 fi
 
 cd build/default
+chmod -R g+r ./
+chmod -R u+r ./
 sftp -P 2222 hackersweek@hackersweek.es <<- EOM
-put index.html
-put bower.json
-put manifes.json
-put service-worker.js
-put -r bower_components
-put -r images
-put -r src
+put -p index.html
+put -p bower.json
+put -p manifes.json
+put -p service-worker.js
+put -p -r bower_components
+put -p -r images
+put -p -r src
 EOM
