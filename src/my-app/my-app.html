@@ -218,6 +218,7 @@
         <paper-item name="home">  <a href ="/home">Inicio</a></paper-item>
         <paper-item name="conferences"><a href ="/conferences">Conferencias</a></paper-item>
         <paper-item name="workshops"><a href ="/workshops">Talleres</a></paper-item>
+        <paper-item name="hackathon"><a href="/hackathon">Hackathon</a></paper-item>
         <paper-item name="games"><a href ="/games">Juegos</a></paper-item>
         <paper-item name="HWExtended"><a href ="/HWExtended">H&lt;&gt;W Extended</a></paper-item>
       </paper-menu>
@@ -260,13 +261,19 @@
             <paper-tab name="workshops" on-click="ensurePath">
               <img src="../../images/workshopsIcon.png" style="height:60%"/>
               <div class="vertical-align">
-                <a href ="/workshops">Talleres</a>
+                <a href="/workshops">Talleres</a>
+              </div>
+            </paper-tab>
+            <paper-tab name="hackathon" on-click="ensurePath">
+              <img src="../../images/hackathonIcon.png" style="height:60%"/>
+              <div class="vertical-align">
+                <a href="/hackathon">Hackathon</a>
               </div>
             </paper-tab>
             <paper-tab name="games" on-click="ensurePath">
               <img src="../../images/gamesIcon.png" style="height:60%"/>
               <div class="vertical-align">
-                <a href ="/games">Juegos</a>
+                <a href="/games">Juegos</a>
               </div>
             </paper-tab>
             <paper-tab name="HWExtended" on-click="ensurePath">
@@ -284,6 +291,7 @@
         <my-home name="home"></my-home>
         <my-conferences name="conferences" user="{{user}}"></my-conferences>
         <my-workshops name="workshops" user="{{user}}"></my-workshops>
+        <my-hackathon name="hackathon" user="{{user}}"></my-hackathon>
         <my-games name="games" user="{{user}}"></my-games>
         <my-hw-extended name="HWExtended" user="{{user}}"></my-hw-extended>
         <my-view404 name="view404"></my-view404>
