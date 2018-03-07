@@ -11,12 +11,113 @@
 
 <dom-module id="my-hackathon">
     <template>
-        <p>Hello world</p>
-        <p>LOL!</p>
+        <style include="shared-styles">
+            :host {
+                display: block;
+                padding: 10px;
+            }
+            paper-fab {
+                --paper-fab-background: var(--app-primary-color);
+            }
+            .banner-desktop{
+                width:100%;
+                margin-top:10px;
+                display: block;
+            }
+
+            .banner-mobile{
+                display: none;
+            }
+
+            @media only screen and (max-width: 720px){
+                .banner-desktop{
+                    display: none;
+                }
+                .banner-mobile{
+                    width:100%;
+                    margin-top:10px;
+                    display: block;
+                }
+            }
+
+            .photo {
+                border-radius: 0;
+            }
+        </style>
+        <firebase-query
+                id="query"
+                path="/hackathon"
+                data="{{data}}">
+        </firebase-query>
+        <header>
+            <h1>Hackathon</h1>
+            <p>¡A picar código!</p>
+        </header>
+        <template is="dom-repeat" items="[[data]]" index-as="index">
+            <div class="card">
+                <h1>[[item.title]]</h1>
+                <div class ="card-container">
+                    <div class="flex-card-2">
+                        <p>
+                            [[item.text]]
+                        </p>
+                    </div>
+                    <div class ="flex-card-2 flex-card-image" style="background-image: url('../images/workshops/[[item.photo]]');">
+                        <template is="dom-if" if="[[item.photo]]" restamp="true">
+                            <img class="photo" src="../../images/hackathon/[[item.photo]]" />
+                        </template>
+                    </div>
+                </div>
+                <br />
+                <template is="dom-if" if="[[item.author]]" restamp="true">
+                    <span><b>Impartido por:</b> [[item.author]]</span>
+                <br />
+                </template>
+                <template is="dom-if" if="[[item.date]]" restamp="true">
+                    <span><b>Fecha:</b> [[item.date]]</span>
+                </template>
+                <br />
+                <template is="dom-if" if="[[item.time]]" restamp="true">
+                    <span><b>Hora:</b> [[item.time]]</span>
+                </template>
+                <br />
+                <template is="dom-if" if="[[item.place]]" restamp="true">
+                    <span><b>Lugar:</b> [[item.place]]</span>
+                </template>
+                <br />
+                <br />
+                <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
+                    <paper-button raised><a href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+                </template>
+                <template is="dom-if" if="[[item.resources]]" restamp="true">
+                    <paper-button raised><a target="_blank" href ="[[item.resources]]">Recursos</a></paper-button>
+                </template>
+            </div>
+        </template>
     </template>
     <script>
         Polymer({
-            is: 'my-hackathon'
+            is: 'my-hackathon',
+            properties: {
+                data:Array,
+                user: Object,
+            },
+            add: function(){
+                if(!this.$.text.value || !this.$.title.value|| !this.$.place.value|| !this.$.date.value){
+                    this.$.errorToast.open();
+                    return;
+                }
+                this.$.query.ref.push({
+                    text: this.$.text.value,
+                    title: this.$.title.value,
+                    place: this.$.place.value,
+                    date: this.$.date.value
+                });
+                this.$.text.value = null;
+                this.$.title.value = null;
+                this.$.place.value = null;
+                this.$.date.value = null;
+            },
         });
     </script>
 </dom-module>
