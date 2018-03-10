@@ -94,22 +94,22 @@
 
               </div>
               <span><b>Conferenciante:</b> [[item.author]]</span>
-              <br />
               <template is="dom-if" if="[[item.date]]" restamp="true">
+                  <br />
                   <span><b>Fecha:</b> [[item.date]]</span>
               </template>
-              <br />
               <template is="dom-if" if="[[item.time]]" restamp="true">
+                  <br />
                   <span><b>Hora:</b> [[item.time]]</span>
               </template>
-              <br />
               <template is="dom-if" if="[[item.place]]" restamp="true">
+                  <br />
                   <span><b>Lugar:</b> [[item.place]]</span>
               </template>
-              <br />
-              <br />
               <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
-                <paper-button raised><a href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+                  <br />
+                  <br />
+                  <paper-button raised><a href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
               </template>
             </div>
         </template>
