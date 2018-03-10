@@ -12,7 +12,7 @@ chmod -R u+r ./
 sftp -P 2222 hackersweek@hackersweek.es <<- EOM
 put -p index.html
 put -p bower.json
-put -p manifes.json
+put -p manifest.json
 put -p service-worker.js
 put -p -r bower_components
 put -p -r images
