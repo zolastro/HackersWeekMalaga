@@ -73,9 +73,8 @@
             data="{{data}}">
         </firebase-query>
         <header>
-          <h1>H&lt;&gt;W Extended</h1>
-          <p>¡Más y mejor!</iron-icon>
-          </p>
+          <h1 onclick="HuevoDelOeste()" id="easterEgg">H&lt;&gt;W Extended</h1>
+          <p>¡Más y mejor!</p>
         </header>
         <template is="dom-repeat" items="[[data]]" index-as="index">
           <div class="card">
@@ -170,5 +169,10 @@
         document.getElementById("clockdiv").style.display = "none";
       }
     }, 1000);
+
+    window.HuevoDelOeste = () => {
+        alert('Hah you found me bruh');
+        document.querySelector('#easterEgg').onclick = null;
+    };
     </script>
 </dom-module>

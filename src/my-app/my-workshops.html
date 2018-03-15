@@ -39,7 +39,7 @@
   </firebase-query>
   <header>
     <h1>Talleres</h1>
-    <p>Para los más atrevidos. </p>
+    <p onclick="HuevoDelEste()" id="_ESTE_">Para los más atrevidos.</p>
   </header>
 
   <template is="dom-repeat" items="[[data]]" index-as="index">
@@ -53,7 +53,6 @@
           </div>
           <div class ="flex-card-2 flex-card-image" style="background-image: url('../images/workshops/[[item.photo]]');">
             <template is="dom-if" if="[[item.photo]]" restamp="true">
-              <!--<img class="photo" src="../../images/workshops/[[item.photo]]" />-->
             </template>
           </div>
         </div>
@@ -73,7 +72,7 @@
         </template>
         <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
             <br />
-            <paper-button raised><a target="_blank" href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+            <paper-button raised style="margin-top: 1em"><a target="_blank" href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
         </template>
 
         <template is="dom-if" if="[[item.resources]]" restamp="true">
@@ -113,5 +112,9 @@
           this.$.place.value = null;
         },
     });
+    window.HuevoDelEste = () => {
+      document.querySelector('#_ESTE_').innerText = "Is Plankalkül the first programming language?";
+      document.querySelector('#_ESTE_').onclick = null;
+    };
   </script>
 </dom-module>
