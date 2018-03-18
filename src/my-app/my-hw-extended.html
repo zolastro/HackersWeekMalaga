@@ -67,40 +67,14 @@
       }
     }
       </style>
-      <div class="countdown">
-        <div id="clockdiv">
-          <h1>Hackers&lt;&gt;Week Extended</h1>
-          <div>
-            <span id="days"></span>
-            <div class="smalltext">Days</div>
-          </div>
-          <div>
-            <span id="hours"></span>
-            <div class="smalltext">Hours</div>
-          </div>
-          <div>
-            <span id="minutes"></span>
-            <div class="smalltext">Minutes</div>
-          </div>
-          <div>
-            <span id="seconds"></span>
-            <div class="smalltext">Seconds</div>
-          </div>
-          <h1>Comming soon!</h1>
-        </div>
-        <br />
-        <br />
-      </div>
-      <div id="info">
         <firebase-query
             id="query"
             path="/hwextended"
             data="{{data}}">
         </firebase-query>
         <header>
-          <h1>H&lt;&gt;W Extended</h1>
-          <p>¡Más y mejor!</iron-icon>
-          </p>
+          <h1 onclick="HuevoDelOeste()" id="easterEgg">H&lt;&gt;W Extended</h1>
+          <p>¡Más y mejor!</p>
         </header>
         <template is="dom-repeat" items="[[data]]" index-as="index">
           <div class="card">
@@ -119,18 +93,25 @@
 
               </div>
               <span><b>Conferenciante:</b> [[item.author]]</span>
-              <br />
-              <span><b>Fecha:</b> [[item.date]]</span>
-              <br />
-              <span><b>Hora:</b> [[item.time]]</span>
-              <br />
-              <br />
+              <template is="dom-if" if="[[item.date]]" restamp="true">
+                  <br />
+                  <span><b>Fecha:</b> [[item.date]]</span>
+              </template>
+              <template is="dom-if" if="[[item.time]]" restamp="true">
+                  <br />
+                  <span><b>Hora:</b> [[item.time]]</span>
+              </template>
+              <template is="dom-if" if="[[item.place]]" restamp="true">
+                  <br />
+                  <span><b>Lugar:</b> [[item.place]]</span>
+              </template>
               <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
-                <paper-button raised><a href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+                  <br />
+                  <br />
+                  <paper-button raised><a href="[[item.eventbrite]]" target="_blank" rel="nofollow">Consigue tu entrada</a></paper-button>
               </template>
             </div>
         </template>
-      </div>
     </template>
     <script>
         Polymer({
@@ -186,8 +167,12 @@
       if (distance < 0) {
         clearInterval(x);
         document.getElementById("clockdiv").style.display = "none";
-        document.getElementById("info").style.display  = "block";
       }
     }, 1000);
+
+    window.HuevoDelOeste = () => {
+        alert('Hah you found me bruh');
+        document.querySelector('#easterEgg').onclick = null;
+    };
     </script>
 </dom-module>

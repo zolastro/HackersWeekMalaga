@@ -4,7 +4,7 @@
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-home">
-    <template>
+  <template>
 
     <style include="shared-styles">
       :host {
@@ -23,9 +23,13 @@
         margin-left: 10%;
       }
 
+      a.my-home.colab {
+        display: flex;
+        align-items: center;
+      }
+
       .logo-colab {
         width: 100%;
-        height: 100%;
       }
       .wrapper {
         margin-left:10%;
@@ -63,7 +67,14 @@
         display: flex;
         flex-direction: row;
         margin: 1%;
-
+      }
+      .flex-card-3 {
+          color: #002932;
+          background-color: white;
+          width: 50%;
+          display: flex;
+          flex-direction: row;
+          margin: 1%;
       }
 
       .cta-container{
@@ -104,71 +115,171 @@
           width: 50%;
           margin: 1%;
         }
+        .flex-card-3 {
+          width: 75%;
+          margin: 1%;
+        }
         .logo{
           width: 100%;
           margin: 0;
         }
         .logo-colab {
-            width: 70%;
-            margin-left: 15%;
-            vertical-align: middle;
+          width: 70%;
+          margin-left: 15%;
+          vertical-align: middle;
         }
 
       }
+
+      .countdown {
+        text-align: center;
+        margin-top: 1.618em;
+        margin-bottom: 1.618em
+      }
+
+      #clockdiv {
+        color: #fff;
+        display: inline-block;
+        font-weight: bold;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      #clockdiv > div {
+        padding: 10px;
+        background: var(--app-primary-color);
+        display: inline-block;
+      }
+
+      #clockdiv > div:first-of-type {
+        border-radius: 3px 0 0 3px;
+      }
+
+      #clockdiv > div:last-of-type {
+        border-radius: 0 3px 3px 0;
+      }
+
+      #clockdiv div > span {
+        padding: 15px;
+        border-radius: 3px;
+        background: var(--app-secondary-color);
+        display: inline-block;
+      }
+      #info {
+        display: none;
+      }
+      .smalltext {
+        padding-top: 5px;
+        font-size: 16px;
+      }
+      @media only screen and (max-width: 720px) {
+        .smalltext{
+          padding-top: 2px;
+          font-size: 8px;
+        }
+        #clockdiv div > span {
+          padding: 6px;
+          border-radius: 3px;
+          background: var(--app-secondary-color);
+          display: inline-block;
+        }
+      }
     </style>
-    <div class = "wrapper" >
+    <div class ="wrapper">
       <div class="card-container">
         <div class="flex-card-2">
-          <h3>Del 3 al 6 de Abril<br>2017</h3>
+          <h3>Del 19 al 22 de Marzo<br>2018</h3>
         </div>
         <div class="flex-card-2">
-          <h3>ETSI Ingeniería<br />Informática</h3>
+          <h3>ETSI<br />Informática</h3>
         </div>
       </div>
       <p>
-        Seguridad informática, redes neuronales, testing, talleres, ¡y mucho más! No te pierdas el evento para estudiantes,  desarrolladores  y amantes de las nuevas tecnologías en la Universidad de Málaga, abierto gratuitamente a todo el público, del 3 al 6 de abril de 2017. Cuatro días cargados con las últimas tecnologías y los mejores ponentes: Sergio de los Santos, Jorge Barroso, Gema Parreño...
+          Nuevas conferencias, nuevos talleres, y sobretodo, ¡nuevas experiencias! Este 2018
+          vuelve una nueva edición de la Hackers Week a la ETSI Informática de la Universidad de Málaga con
+          4 días cargados de aprendizaje, torneos y culminado por un acto de clausura.
+          ¿Quiénes vendrán durante esta edición de la Hackers Week? ¡¡Estad atentos a nuestras Redes Sociales para más info!!
+          <!-- This is not an easter egg! -->
       </p>
-      <br />
-      <img class ="logo" src="../../images/horario2017.jpg" alt="Hackers Week 2017">
+      <br/>
+      <div class="countdown">
+        <div id="clockdiv">
+          <h1>Hackers&lt;&gt;Week</h1>
+          <div>
+            <span id="days"></span>
+            <div class="smalltext">Days</div>
+          </div>
+          <div>
+            <span id="hours"></span>
+            <div class="smalltext">Hours</div>
+          </div>
+          <div>
+            <span id="minutes"></span>
+            <div class="smalltext">Minutes</div>
+          </div>
+          <div>
+            <span id="seconds"></span>
+            <div class="smalltext">Seconds</div>
+          </div>
+          <h1>Coming soon!</h1>
+        </div>
+      </div>
+      <br /> <div>
+      <img src="../../images/horario.png" alt="Horario" style="width: 100%; height: auto;">
+    </div>
       <br />
       <p>
         La Escuela Técnica Superior de Ingeniería Informática se encuentra en el Campus de Teatinos de la Universidad de Málaga, junto al Hospital Clínico Universitario Virgen de la Victoria. Las conferencias, los talleres y el resto de actividades tendrán lugar en el edificio de la escuela; que cuenta con cafetería y zonas de aparcamiento.
       </p>
       <p>
-         Las diferentes formas de acceso al campus de Teatinos son:
-	      <ul>
-		    <li><strong>Desde el aeropuerto de Málaga: </strong> además de los servicios de autobuses de la EMT al centro de la ciudad, existe una estación de Cercanías de Renfe dirección centro de la ciudad, con bajada en Estación Renfe María Zambrano donde existe una conexión con la estación de metro "Perchel" donde tomando la línea 1 dirección Andalucía Tech y bajándonos en la estación "Clínico" llegaremos a la Escuela.</li>
-        <br />
-		    <li><strong>Desde estación de Renfe "María Zambrano"</strong>: tomando el acceso al metro existente en la estación que da acceso a la parada "Perchel", tomaremos la línea 1 direccin Andalucía Tech y bajándonos en la estación "Clínico" llegaremos a la Escuela.</li>
-        <br />
-        <li><strong>En metro: </strong>Las líneas 1 y 2 del Metro de Málaga van desde el Campus universitario de Teatinos al Palacio de los Deportes, uniéndose en el intercambiador de El Perchel-María Zambrano. La línea 1 dirección "Andalucía Tech" con parada "Clínico" se encuentra a menos de 1 minuto de la Escuela (<a href="http://metromalaga.es/" target="_blank">mas información</a>)</li>
-        <br />
-		    <li><strong>En autobús:</strong> Destino Bulevar Louis Pasteur. Las líneas 8, 11 y 25 llegan muy cerca (menos de 1 min). Desde el centro debe tomar la línea 11 (<a href="http://www.emtmalaga.es/" target="_blank">mas información</a>)</li>
-          </ul>
+        Las diferentes formas de acceso al campus de Teatinos son:
+        <ul>
+          <li><strong>Desde el aeropuerto de Málaga: </strong> además de los servicios de autobuses de la EMT al centro de la ciudad, existe una estación de Cercanías de Renfe dirección centro de la ciudad, con bajada en Estación Renfe María Zambrano donde existe una conexión con la estación de metro "Perchel" donde tomando la línea 1 dirección Andalucía Tech y bajándonos en la estación "Clínico" llegaremos a la Escuela.</li>
+          <br />
+          <li><strong>Desde estación de Renfe "María Zambrano"</strong>: tomando el acceso al metro existente en la estación que da acceso a la parada "Perchel", tomaremos la línea 1 direccin Andalucía Tech y bajándonos en la estación "Clínico" llegaremos a la Escuela.</li>
+          <br />
+          <li><strong>En metro: </strong>Las líneas 1 y 2 del Metro de Málaga van desde el Campus universitario de Teatinos al Palacio de los Deportes, uniéndose en el intercambiador de El Perchel-María Zambrano. La línea 1 dirección "Andalucía Tech" con parada "Clínico" se encuentra a menos de 1 minuto de la Escuela (<a href="http://metromalaga.es/" target="_blank">mas información</a>)</li>
+          <br />
+          <li><strong>En autobús:</strong> Destino Bulevar Louis Pasteur. Las líneas 8, 11 y 25 llegan muy cerca (menos de 1 min). Desde el centro debe tomar la línea 11 (<a href="http://www.emtmalaga.es/" target="_blank">mas información</a>)</li>
+        </ul>
       </p>
 
-        <br />
-        <div class = "wrapper card-container-logo" >
-          <div class = "flex-card-4">
-            <a href="https://twitter.com/consejoinfuma"><img  class = "logo-colab" src="../../images/logo-consejo.jpeg" alt="Consejo de Estudiantes de la ETSI Informática"></a>
-          </div>
-          <div class = "flex-card-4">
-            <a href="https://twitter.com/gdgmalaga"><img  class = "logo-colab" src="../../images/gdgMalaga.jpg" alt="GDG Málaga"></a>
-          </div>
-          <div class = "flex-card-4">
-            <a href="https://twitter.com/vestudiantesuma"><img  class = "logo-colab" src="../../images/estudiantesUma.jpg" alt="Vicerrectorado de estudiantes"></a>
-          </div>
-          <div class = "flex-card-4">
-            <a href="https://twitter.com/infouma"><img  class = "logo-colab" src="../../images/uma.png" alt="Universidad de Málaga"></a>
-          </div>
-
+      <br />
+      <p><strong>
+        Organizan:
+      </strong>
+      </p>
+      <div class = "wrapper card-container-logo" >
+        <div class = "flex-card-3">
+          <a target="_blank" href="https://twitter.com/consejoinfuma" class="colab"><img  class = "logo-colab" src="../../images/logo-consejo.jpeg" alt="Consejo de Estudiantes de la ETSI Informática"></a>
         </div>
-
+        <div class = "flex-card-3">
+          <a target="_blank" href="https://twitter.com/gdgmalaga" class="colab"><img  class = "logo-colab" src="../../images/gdgMalaga.png" alt="GDG Málaga"></a>
+        </div>
       </div>
+      <p><strong>
+        Patrocinan:
+      </strong>
+      </p>
+      <div class = "Wrapper card-container-logo">
+        <div class="flex-card-4">
+          <a target="_blank" href="https://www.ebury.es/" class="colab"><img class="logo-colab" src="../../images/ebury_logo.png" alt="Ebury"></a>
+        </div>
+        <div class = "flex-card-4">
+          <a target="_blank" href="https://twitter.com/vestudiantesuma" class="colab"><img  class = "logo-colab" src="../../images/estudiantesUma.jpg" alt="Vicerrectorado de estudiantes"></a>
+        </div>
+        <div class = "flex-card-4">
+          <a target="_blank" href="https://twitter.com/informaticaUMA" class="colab"><img  class = "logo-colab" src="../../images/etsii.png" alt="ETSI Informática"></a>
+        </div>
+        <div class = "flex-card-4">
+          <a target="_blank" href="https://www.ibm.com/es-es/" class="colab"><img  class = "logo-colab" src="../../images/ibmlogo.png" alt="IBM"></a>
+        </div>
+      </div>
+    </div>
 
     <div class="wrapper">
-    <br>
-    <google-map
+      <br>
+      <google-map
       latitude="36.715292"
       longitude="-4.477115"
       zoom="16"
@@ -178,12 +289,39 @@
       <google-map-marker latitude="37.777" longitude="-122.38911"></google-map-marker>
     </google-map>
   </div>
-    <br><br><br>
-  </template>
+  <br><br><br>
+</template>
 
-    <script>
-        Polymer({
-            is: 'my-home',
-        });
-    </script>
+<script>
+  Polymer({
+    is: 'my-home',
+  });
+</script>
+<script>
+  (() => {
+    const countdownDate = new Date("Mar 19, 2018 10:20:00").getTime();
+
+    var x = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      if(distance < 0) {
+        clearInterval(x);
+        document.getElementById("clockdiv").style.display = "none";
+      } else {
+        document.getElementById("clockdiv").style.display = "block";
+      }
+    }, 1000);
+  })();
+</script>
 </dom-module>

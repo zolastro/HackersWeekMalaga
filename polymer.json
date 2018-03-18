@@ -6,15 +6,19 @@
     "src/my-app/my-conferences.html",
     "src/my-app/my-workshops.html",
     "src/my-app/my-games.html",
-    "src/my-app/my-hw-extended.html"
+    "src/my-app/my-hw-extended.html",
+    "src/my-app/my-hackathon.html"
   ],
-  "sourceGlobs": [
+  "sources": [
     "src/**/*",
     "images/**/*",
     "bower.json"
   ],
-  "includeDependencies": [
+  "extraDependencies": [
     "manifest.json",
     "bower_components/webcomponentsjs/webcomponents-lite.min.js"
-  ]
+  ],
+  "lint": {
+    "rules": [ "polymer-1" ]
+  }
 }

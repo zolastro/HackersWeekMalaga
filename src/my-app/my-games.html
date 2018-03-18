@@ -33,6 +33,10 @@
         display: block;
       }
     }
+
+  .photo {
+    border-radius: 0;
+  }
   </style>
   <firebase-query
       id="query"
@@ -43,29 +47,45 @@
     <h1>Juegos</h1>
     <p>Saca tu lado friki.  </p>
   </header>
-  <img class="banner-desktop" src="../../images/games/banner.jpg" />
+ <!--<img class="banner-desktop" src="../../images/games/banner.jpg" />-->
   <template is="dom-repeat" items="[[data]]" index-as="index">
-    <div class="card">
-      <h1>[[item.title]]</h1>
-      <div class="card-container">
-          <div class="flex-card-2">
-            <p>
-              [[item.text]]
-            </p>
-          </div>
-          <template is="dom-if" if="[[item.photo]]" restamp="true">
-          <div class ="flex-card-2">
-            <img class="photo" src="../../images/games/[[item.photo]]" />
-          </div>
+    <template is="dom-if" if="[[item.show]]" restamp="true">
+      <div class="card">
+        <h1>[[item.title]]</h1>
+        <div class="card-container">
+            <div class="flex-card-2">
+              <p>
+                [[item.text]]
+              </p>
+            </div>
+            <template is="dom-if" if="[[item.photo]]" restamp="true">
+            <div class ="flex-card-2">
+              <img class="photo" src="../../images/games/[[item.photo]]" />
+            </div>
+          </template>
+        </div>
+        <br />
+        <template is="dom-if" if="[[item.date]]" restamp="true">
+          <br />
+          <span><b>Fecha:</b> [[item.date]]</span>
         </template>
-      </div>
-      <br />
-      <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
-        <paper-button raised><a href ="[[item.eventbrite]]">Inscríbete</a></paper-button>
-      </template>
-      </div>
+        <template is="dom-if" if="[[item.time]]" restamp="true">
+          <br />
+          <span><b>Hora:</b> [[item.time]]</span>
+        </template>
+        <template is="dom-if" if="[[item.place]]" restamp="true">
+          <br />
+          <span><b>Lugar:</b> [[item.place]]</span>
+        </template>
+        <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
+            <br/>
+            <br/>
+          <paper-button raised><a target="_blank" href ="[[item.eventbrite]]">Inscríbete</a></paper-button>
+        </template>
+        </div>
+    </template>
   </template>
-  <img class="banner-mobile" src="../../images/games/banner.jpg" />
+  <!-- <img class="banner-mobile" src="../../images/games/banner.jpg" /> -->
 </template>
 
   <script>

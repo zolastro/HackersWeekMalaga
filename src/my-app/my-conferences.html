@@ -27,9 +27,15 @@
   </firebase-query>
   <header>
     <h1>Conferencias</h1>
-    <p>El corazón de la hackers <iron-icon icon="favorite" style="color:red;"></iron-icon>
-    </p>
+    <p>El corazón de la hackers <iron-icon icon="favorite" style="color:rgb(247, 39, 39);"></iron-icon></p>
   </header>
+  <pre style="color:transparent;font-size:8px;text-align: right;">
+      #include &lt;stdio.h&gt;
+      int main(){
+      printf("You found me!! :P\n");    &nbsp;
+      return 0;    &nbsp;
+      }
+  </pre>
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
@@ -47,14 +53,22 @@
 
         </div>
         <span><b>Conferenciante:</b> [[item.author]]</span>
-        <br />
-        <span><b>Fecha:</b> [[item.date]]</span>
-        <br />
-        <span><b>Hora:</b> [[item.time]]</span>
-        <br />
-        <br />
+        <template is="dom-if" if="[[item.date]]" restamp="true">
+            <br />
+            <span><b>Fecha:</b> [[item.date]]</span>
+        </template>
+        <template is="dom-if" if="[[item.time]]" restamp="true">
+            <br />
+            <span><b>Hora:</b> [[item.time]]</span>
+        </template>
+        <template is="dom-if" if="[[item.place]]" restamp="true">
+            <br />
+            <span><b>Lugar:</b> [[item.place]]</span>
+        </template>
         <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
-          <paper-button raised><a href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+            <br />
+            <br />
+            <paper-button raised><a href="[[item.eventbrite]]" target="_blank" rel="nofollow">Consigue tu entrada</a></paper-button>
         </template>
       </div>
   </template>

@@ -14,6 +14,23 @@
     paper-fab {
         --paper-fab-background: var(--app-primary-color);
       }
+      .flex-card-image {
+          max-height: 50vh;
+          height: 50vh;
+          background: no-repeat center;
+          background-size: contain;
+      }
+      @media(min-height: 760px) {
+          .flex-card-image {
+              max-height: 380px;
+              height: 380px;
+          }
+      }
+      .flex-card-image:after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+      }
   </style>
   <firebase-query
       id="query"
@@ -22,8 +39,9 @@
   </firebase-query>
   <header>
     <h1>Talleres</h1>
-    <p>Para los más atrevidos.  </p>
+    <p onclick="HuevoDelEste()" id="_ESTE_">Para los más atrevidos.</p>
   </header>
+
   <template is="dom-repeat" items="[[data]]" index-as="index">
     <div class="card">
         <h1>[[item.title]]</h1>
@@ -33,31 +51,36 @@
               [[item.text]]
             </p>
           </div>
-          <div class ="flex-card-2">
+          <div class ="flex-card-2 flex-card-image" style="background-image: url('../images/workshops/[[item.photo]]');">
             <template is="dom-if" if="[[item.photo]]" restamp="true">
-              <img class="photo" src="../../images/workshops/[[item.photo]]" />
             </template>
           </div>
         </div>
         <br />
         <span><b>Impartido por:</b> [[item.author]]</span>
-        <br />
-        <span><b>Fecha:</b> [[item.date]]</span>
-        <br />
-        <span><b>Hora:</b> [[item.time]]</span>
-        <br />
-        <span><b>Lugar:</b> [[item.place]]</span>
-        <br />
-        <br />
+        <template is="dom-if" if="[[item.date]]" restamp="true">
+            <br />
+            <span><b>Fecha:</b> [[item.date]]</span>
+        </template>
+        <template is="dom-if" if="[[item.time]]" restamp="true">
+            <br />
+            <span><b>Hora:</b> [[item.time]]</span>
+        </template>
+        <template is="dom-if" if="[[item.place]]" restamp="true">
+            <br />
+            <span><b>Lugar:</b> [[item.place]]</span>
+        </template>
         <template is="dom-if" if="[[item.eventbrite]]" restamp="true">
-          <paper-button raised><a href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
+            <br />
+            <paper-button raised style="margin-top: 1em"><a target="_blank" href ="[[item.eventbrite]]">Consigue tu entrada</a></paper-button>
         </template>
 
         <template is="dom-if" if="[[item.resources]]" restamp="true">
-          <paper-button raised><a href ="[[item.resources]]">Recursos</a></paper-button>
+          <paper-button raised><a target="_blank" href ="[[item.resources]]">Recursos</a></paper-button>
         </template>
       </div>
   </template>
+
 
 
 
@@ -89,5 +112,9 @@
           this.$.place.value = null;
         },
     });
+    window.HuevoDelEste = () => {
+      document.querySelector('#_ESTE_').innerText = "Is Plankalkül the first programming language?";
+      document.querySelector('#_ESTE_').onclick = null;
+    };
   </script>
 </dom-module>
